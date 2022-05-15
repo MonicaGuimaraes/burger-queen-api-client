@@ -1,7 +1,7 @@
 export default function Inputs(tipoInput,placeholder) {
     return (
       <> 
-      <input className='input'type={tipoInput} placeholder={placeholder} id={placeholder}></input>
+        <input className='input'type={tipoInput} placeholder={placeholder} id={placeholder}></input>
       </>
         
  
