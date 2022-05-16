@@ -1,7 +1,7 @@
 export default function Inputs({typeInput,placeholder,value}) {
     return (
       <> 
-        <input className='input'type={typeInput} placeholder={placeholder} id={placeholder} ></input>
+        <input className='input'type={typeInput} placeholder={placeholder} id={placeholder} onChange={(e) => value(e.target.value)}></input>
       </>
     );
   }

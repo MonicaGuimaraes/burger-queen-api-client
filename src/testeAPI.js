@@ -2,9 +2,10 @@ export default async function testeAPI(){
   const options = {
       method: 'POST',
       Headers: { 
-        'Content-Type': 'application/json', 
+        "Content-Type": "application/x-www-form-urlencoded", 
+        "accept" : "application/json"
       },
-      body:{email:'sample@mail.com', password:'sample'},
+      body: JSON.stringify({email: 'sample@mail.com', password:  'sample'})
     }; 
     //Bad request no console.log
     fetch('https://lab-api-bq.herokuapp.com/auth', options)
