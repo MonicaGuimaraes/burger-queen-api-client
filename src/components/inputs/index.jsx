@@ -1,20 +1,14 @@
-
-export default function Inputs({typeInput,placeholder}) {
+import styles from './inputs.module.css';
+export default function Inputs(props) {
     return (
-      <> 
-        <input className='input'type={typeInput} placeholder={placeholder} id={placeholder}></input>
+      <>
+        <input className={styles.Inputs} {...props}></input>
       </>
     );
   }
 // import { useState } from 'react';
 
 // export default function Inputs({typeInput,placeholder}) {
-//   const [name, setName] = useState('')
-//   console.log(name)
-//   return (
-//     <>
-//       <input className='input'type={typeInput} placeholder={placeholder} id={placeholder} value={name} onChange={(e) => setName(e.target.value)}></input>
-//     </>
-//   );
+//  
 // }
 // sugestão: colocar o input de email e senha dentro do inputs()
