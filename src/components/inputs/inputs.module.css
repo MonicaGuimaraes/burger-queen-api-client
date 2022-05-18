@@ -1,0 +1,12 @@
+@import "../../reset.css";
+
+.Inputs{
+    background: #FFFFFF;
+    border-radius: 5px;
+    width: 13rem;
+    height: 2rem;
+    padding: 10px;
+    border: 1px solid;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}

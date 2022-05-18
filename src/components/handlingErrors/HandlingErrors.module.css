@@ -1,0 +1,8 @@
+@import "../../reset.css";
+.sectionMessageError{ 
+  position: absolute;
+  top: 10%;
+  text-align: center;
+  width: 80%;
+  background: var(--warning-message);
+}
