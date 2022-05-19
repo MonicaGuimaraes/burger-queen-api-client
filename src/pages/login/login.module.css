@@ -1,1 +1,59 @@
 @import "../../reset.css";
+.SectionLogin{
+    display:flex;
+    justify-items:center;
+    align-items:center;
+    text-align: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(16.08deg, var(--gradient-color4), var(--gradient-color5));
+}
+.FormLogin{
+    display:flex;
+    width: 50%;
+    justify-items:center;
+    align-items:center;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 3rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+section img{
+  width: 15rem;
+  margin-left: -47px;
+  margin-top: 60px;
+}
+
+.register{
+  margin: 4rem 1rem 0 1rem;
+  color: var(--color5);
+  font-size: 1.5rem;
+ }
+
+.link{
+  color: var(--color4);
+}
+@media screen and (min-width: 768px){
+    .FormLogin{
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+  .SectionLogin{ 
+    flex-direction: row;
+  }
+
+  .FormLogin{
+    width: 30%;
+  }
+
+  section img{
+    margin: 12%;
+    width: 30rem;
+  }
+}

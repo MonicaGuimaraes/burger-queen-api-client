@@ -1,9 +1,10 @@
 import styles from './HandlingErrors.module.css';
 export default function HandlingErrors({message}) {
   const text = {
-    'email/senha inválido' : 'E-mail ou senha inválido.',
-    'email/senha não fornecido': 'Digite o e-mail ou a senha.'
+    'email/senha inválido' : 'E-mail ou senha inválido',
+    'email/senha não fornecido': 'Digite o e-mail ou a senha'
   }
+  
   return ( 
     <section className={styles.sectionMessageError}>
       <p className={styles.errorText}>{text[message]}</p>

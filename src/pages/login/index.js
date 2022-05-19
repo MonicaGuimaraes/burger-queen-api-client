@@ -1,9 +1,10 @@
-import Inputs from "../../components/inputs" 
-import ButtonSubmit from "../../components/buttons"
-import testeAPI from "../../LoginAPI.js"
+import Inputs from '../../components/inputs'
+import ButtonSubmit from '../../components/buttons'
+import testeAPI from '../../LoginAPI.js'
 import { useState } from "react"
-import HandlingErrors from "../../components/handlingErrors"
-import styles from './HandlingErrors.module.css';
+import HandlingErrors from '../../components/handlingErrors'
+import styles from './login.module.css';
+import logo from '../../assets/Logo.svg'
 import {
   BrowserRouter as Router,
   Routes,
@@ -24,20 +25,25 @@ export default function Login(){
       if(response.code){
         setResponseAPI(response.message)
         setShowElement(true)
+        setTimeout(() => {
+          setShowElement(false)
+        }, 10000)
+      } else {
+        
       }
     })
   }
     
   return(
-    <section className={styles.Inputs}>
-      { showElement ? <HandlingErrors message={responseAPI}/> : null }
-      <form onSubmit={onSubmitForm} >
-        <label> 
-          <h1>Login</h1>
-          <Inputs type='email' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)}  />
-          <Inputs type='password' placeholder='Senha' value={password} onChange={(e) => setPassword(e.target.value)} />
-          <ButtonSubmit action={'Entrar'}/>
-        </label>
+    <section className={styles.SectionLogin}>
+      <img src={logo} alt="logo"/>
+      <form onSubmit={onSubmitForm} className={styles.FormLogin}>
+      { showElement ? <HandlingErrors message={responseAPI}/> : null }   
+        <h1>Login</h1>
+        <Inputs type='email' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
+        <Inputs type='password' placeholder='Senha' value={password} onChange={(e) => setPassword(e.target.value)} />
+        <ButtonSubmit action={'Entrar'}/>
+        <p className={styles.register}>Não tem uma conta? <Link className={styles.link} to="/register">Cadastre-se</Link></p>
       </form>
     </section>    
   )

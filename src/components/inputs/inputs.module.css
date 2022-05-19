@@ -1,12 +1,11 @@
 @import "../../reset.css";
 
 .Inputs{
-    background: #FFFFFF;
+    background: var(--inputs);
     border-radius: 5px;
-    width: 13rem;
-    height: 2rem;
+    width: 100%;
+    height: 2.5rem;
     padding: 10px;
-    border: 1px solid;
     font-size: 1rem;
     font-family: 'Poppins', sans-serif;
 }
