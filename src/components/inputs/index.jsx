@@ -1,12 +1,14 @@
-export default function Inputs(tipoInput,placeholder) {
+import styles from './inputs.module.css';
+export default function Inputs(props) {
     return (
-      <> 
-      <input className='input'type={tipoInput} placeholder={placeholder} id={placeholder}></input>
+      <>
+        <input className={styles.Inputs} {...props}></input>
       </>
-        
- 
     );
   }
+// import { useState } from 'react';
 
-// Como usar parametros nas funções de react
-// Só é necessário criar um input ? E chamar ele passando argumentos para diferenciar
+// export default function Inputs({typeInput,placeholder}) {
+//  
+// }
+// sugestão: colocar o input de email e senha dentro do inputs()
