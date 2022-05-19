@@ -1,6 +1,6 @@
 import Inputs from '../../components/inputs'
 import ButtonSubmit from '../../components/buttons'
-import testeAPI from '../../LoginAPI.js'
+import loginAPI from '../../API/LoginAPI.js'
 import { useState } from "react"
 import HandlingErrors from '../../components/handlingErrors'
 import styles from './login.module.css';
@@ -20,7 +20,7 @@ export default function Login(){
 
   function onSubmitForm(e) {
     e.preventDefault()
-    testeAPI(email, password).then((response) => {
+    loginAPI(email, password).then((response) => {
       console.log(response.code, response.message)
       if(response.code){
         setResponseAPI(response.message)
@@ -41,7 +41,7 @@ export default function Login(){
       { showElement ? <HandlingErrors message={responseAPI}/> : null }   
         <h1>Login</h1>
         <Inputs type='email' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
-        <Inputs type='password' placeholder='Senha' value={password} onChange={(e) => setPassword(e.target.value)} />
+        <Inputs type='password' placeholder='Senha' autoComplete='current-password' value={password} onChange={(e) => setPassword(e.target.value)} />
         <ButtonSubmit action={'Entrar'}/>
         <p className={styles.register}>Não tem uma conta? <Link className={styles.link} to="/register">Cadastre-se</Link></p>
       </form>
