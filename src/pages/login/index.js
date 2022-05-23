@@ -29,7 +29,8 @@ export default function Login(){
           setShowElement(false)
         }, 10000)
       } else {
-        
+        let history = useHistory();
+        history.push("/home");
       }
     })
   }
