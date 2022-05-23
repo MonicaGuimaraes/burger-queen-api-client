@@ -1,4 +1,4 @@
-export default async function testeAPI(valueEmail, valuePass){
+export default async function loginAPI(valueEmail, valuePass){
  
   const options = {
     method: 'POST',
