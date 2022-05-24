@@ -4,6 +4,9 @@ export default function HandlingErrors({message}) {
     'email/senha inválido' : 'E-mail ou senha inválido',
     'email/senha não fornecido': 'Digite o e-mail ou a senha'
   }
+  if(!text.message){
+    text.message = "Tente mais tarde! Estamos com alguns problemas!"
+  }
   
   return ( 
     <section className={styles.sectionMessageError}>

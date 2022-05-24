@@ -1,31 +1,59 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import  Login from './index.js';
-import {render, screen} from '@testing-library/react'
-import {BrowserRouter as Router} from 'react-router-dom';
+import {render, screen, waitFor} from '@testing-library/react'
+import user from '@testing-library/user-event';
+import { loginAPI } from '../../API/LoginAPI' 
+
+jest.mock('react-router-dom')
+jest.mock('../../API/LoginAPI')
+
 describe("LoginPage", () => {
-  test('Testando se o componente do button está na pagina de login', () => {
-    render(<Router><Login /></Router>);
+
+  test('Deverá autenticar um usuário com sucesso', async () =>{
+    loginAPI.mockResolvedValueOnce({})
+    // const navigate = jest.fn()
+    // navigate.mockReturnValueOnce()
+    render(<Login />)
+
+    const email = 'sample@mail.com';
+    const password = 'sample';
+    const inputEmail = screen.getByPlaceholderText(/Email/i)
+    user.type(inputEmail, email)
+    const inputPassword = screen.getByPlaceholderText(/Senha/i)
+    user.type(inputPassword, password)
     const button = screen.getByRole('button')
-    expect(button).toBeInTheDocument()
-  });
-  
-  test('Testando se o componente do input está na página de login com placeholder email', () => {
-    render(<Router><Login /></Router>);
-    const input = screen.getByPlaceholderText(/Email/i)
-    expect(input).toBeInTheDocument()
+    user.click(button)
+
+    await waitFor(() =>{
+      expect(loginAPI).toHaveBeenCalledWith(email, password)
+    });
+    expect(loginAPI).toHaveBeenCalledTimes(1)
+    // await waitFor(() => expect().toHaveBeenCalledTimes(1))
   })
 
-  test('Testando se o componente do input está na página de login com placeholder senha', () => {
-    render(<Router><Login /></Router>);
-    const input = screen.getByPlaceholderText(/Senha/i)
-    expect(input).toBeInTheDocument()
-  })
+  test('Não deverá chamar a API se o email estiver errado', async () =>{
+    // loginAPI. clear
+    // loginAPI.mockResolvedValueOnce({})
+    // // const navigate = jest.fn()
+    // // navigate.mockReturnValueOnce()
+    // render(<Login />)
+
+    // const email = 'samplemail.com';
+    // const password = 'sample';
     // const inputEmail = screen.getByPlaceholderText(/Email/i)
-    // const inputSenha = screen.getByPlaceholderText(/Senha/i)
-    // inputEmail.value = 'sample@mail.com'
-    // inputSenha.value = 'sample'
-    // expect(screen.toBeInTheDocument())
+    // user.type(inputEmail, email)
+    // const inputPassword = screen.getByPlaceholderText(/Senha/i)
+    // user.type(inputPassword, password)
+    // const button = screen.getByRole('button')
+    // user.click(button)
+
+    // await waitFor(() =>{
+    //   expect(loginAPI).toHaveBeenCalledWith(email, password)
+    // });
+    // expect(loginAPI).toHaveBeenCalledTimes(1)
+    // await waitFor(() => expect().toHaveBeenCalledTimes(1))
+  })
 })
 
 
