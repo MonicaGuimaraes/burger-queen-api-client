@@ -1,14 +1,11 @@
 import Inputs from '../../components/inputs'
 import ButtonSubmit from '../../components/buttons'
 import { useState } from 'react'
-import registerAPI from '../../API/RegisterAPI.js'
+import { registerAPI } from '../../API/RegisterAPI'
 import HandlingErrors from '../../components/handlingErrors'
 import styles from './register.module.css';
 import logo from '../../assets/Logo.svg'
 import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
     Link,
     Navigate,
   } from "react-router-dom";
@@ -20,7 +17,10 @@ export default function Register(){
   const [role, setRole] = useState('')
   const [showElement, setShowElement] = useState(false)
   const [responseAPI, setResponseAPI] = useState('')
-  
+  const [navigate, setNavigate] = useState(false)
+  const REGEX_EMAIL = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  const minPwdLength = 6
+  const minNameLength = 2 
   
   function onSubmitForm(e) {
     e.preventDefault()
@@ -32,16 +32,28 @@ export default function Register(){
     }
 
     registerAPI(object).then((response) => {
-      console.log(response.code, response.message)
-      if(response.code){
-        setResponseAPI(response.message)
-        setShowElement(true)
-        setTimeout(() => {
-          setShowElement(false)
-        }, 10000)
-      } else {
-    
+      console.log(response)
+      const hasError = response.code
+      let message = ''
+      let show = false
+      let navigateHome = false
+
+      if(hasError){
+        message = response.message;
+        show = true
       }
+
+      setResponseAPI(message)
+      setShowElement(show)
+      setTimeout(() => {
+        setShowElement(false)
+      }, 10000)
+
+      if(!hasError){
+        navigateHome = true
+      }
+      
+      setNavigate(navigateHome)
     })
   }
       
@@ -54,14 +66,16 @@ export default function Register(){
         <Inputs type='text' placeholder='Nome' autoComplete='off' required value={name} onChange={(e) => setName(e.target.value)} />
         <Inputs type='email' placeholder='Email' autoComplete='off' required value={email} onChange={(e) => setEmail(e.target.value)} />
         <Inputs type='password' placeholder='Senha' autoComplete='current-password' required value={password} onChange={(e) => setPassword(e.target.value)} />
-        <select defaultValue='Cargo' placeholder='Cargo' className={styles.select} onChange={(e) => setRole(e.target.value)}>
-          <option value='Cargo'>Cargo</option>
+        <select className={styles.select} data-testid='select' onChange={(e) => setRole(e.target.value)}>
+        <optgroup label="Cargo">
           <option value='Atendimento'>Atendimento</option>
           <option value='Cozinha'>Cozinha</option>
+        </optgroup>
         </select>
-        <ButtonSubmit action={'Entrar'}/>
+        <ButtonSubmit action={'Entrar'} disabled={!REGEX_EMAIL.test(email) || password.length < minPwdLength || name.length < minNameLength} />
         <p className={styles.register}>Tem uma conta? <Link className={styles.link} to="/">Vá para o Login</Link></p>
       </form>
+      { navigate ? <Navigate to="/home" /> : null }
     </section>    
   )
 }

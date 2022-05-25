@@ -9,6 +9,7 @@
     width: 100vw;
     height: 100vh;
     background: linear-gradient(16.08deg, var(--gradient-color4), var(--gradient-color5));
+   
 }
 .FormLogin{
     display:flex;
@@ -37,15 +38,22 @@ section img{
 .link{
   color: var(--color4);
 }
+@media screen and (max-width: 500px){
+  .SectionLogin{
+    height: 120vh;
+  }
+}
 @media screen and (min-width: 768px){
     .FormLogin{
         width: 40%;
     }
+   
 }
 
 @media screen and (min-width: 1024px) {
   .SectionLogin{ 
     flex-direction: row;
+
   }
 
   .FormLogin{
