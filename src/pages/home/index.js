@@ -3,7 +3,7 @@ import Hamburguer from '../../assets/Hamburguer.png'
 import ButtonNav from '../../components/buttonsNavigate'
 import styles from './Home.module.css'
 import { logoutUser } from '../../components/localStorage'
-import { Navigate, useNavigate , Link} from 'react-router-dom'
+import { Navigate, useNavigate} from 'react-router-dom'
 import { useState } from 'react'
 
  
