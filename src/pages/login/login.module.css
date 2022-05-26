@@ -1,15 +1,18 @@
 @import "../../reset.css";
+
 .SectionLogin{
-    display:flex;
-    justify-items:center;
-    align-items:center;
-    text-align: center;
-    flex-direction: column;
-    gap: 10px;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(16.08deg, var(--gradient-color4), var(--gradient-color5));
-   
+  display:flex;
+  justify-items:center;
+  align-items:center;
+  text-align: center;
+  flex-direction: column;
+  gap: 10px;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(16.08deg, var(--gradient-color4), var(--gradient-color5));
+  overflow-x: hidden;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .FormLogin{
     display:flex;
@@ -25,12 +28,10 @@
 
 section .LogoImgLogin{
   width: 15rem;
-  margin-left: -47px;
-  margin-top: 60px;
 }
 
 .register{
-  margin: 4rem 1rem 0 1rem;
+  margin: 1rem 1rem 0 1rem;
   color: var(--color5);
   font-size: 1.5rem;
  }
@@ -38,11 +39,7 @@ section .LogoImgLogin{
 .link{
   color: var(--color4);
 }
-@media screen and (max-width: 500px){
-  .SectionLogin{
-    height: 120vh;
-  }
-}
+
 @media screen and (min-width: 768px){
     .FormLogin{
         width: 40%;
@@ -60,8 +57,8 @@ section .LogoImgLogin{
     width: 30%;
   }
 
-  section img{
-    margin: 10%;
+  section .LogoImgLogin{
+    margin: 12%;
     width: 30rem;
   }
 

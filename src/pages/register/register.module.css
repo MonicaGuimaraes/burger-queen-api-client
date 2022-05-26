@@ -8,13 +8,13 @@
   flex-direction: column;
   gap: 10px;
   width: 100vw;
-  height: 117vh;
+  height: 100vh;
   background: linear-gradient(16.08deg, var(--gradient-color4), var(--gradient-color5));
   overflow-x: hidden;
   background-repeat: no-repeat;
   background-size: contain;
- 
 }
+
 .FormLogin{
   display:flex;
   width: 50%;
@@ -39,8 +39,6 @@
 
 section .LogoImg{
   width: 15rem;
-  margin-left: -47px;
-  margin-top: 7px;
 }
 
 .register{
@@ -52,11 +50,11 @@ section .LogoImg{
 .link{
   color: var(--color4);
 }
-@media screen and (max-width: 500px){
+/* @media screen and (max-width: 500px){
   .SectionLogin{
     height: 120vh;
   }
-}
+} */
 @media screen and (min-width: 768px){
   .FormLogin{
     width: 40%;
@@ -68,12 +66,12 @@ section .LogoImg{
     flex-direction: row;
   }
 
-  .FormLogin{
+  .FormLogin {
     width: 30%;
   }
 
-  section img{
-    margin: 12%;
+  section .LogoImg{
+    margin: 11%;
     width: 30rem;
   }
 }

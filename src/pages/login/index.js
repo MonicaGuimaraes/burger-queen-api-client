@@ -54,16 +54,16 @@ export default function Login(){
     
   return(
     <section className={styles.SectionLogin}>
+      { navigate ? <Navigate to="/home" /> : null }
       <img className={styles.LogoImgLogin} src={logo} alt="logo"/>
       <form onSubmit={onSubmitForm} className={styles.FormLogin}>
-      { showElement ? <HandlingErrors message={responseAPI} /> : null }   
+      { showElement ? <HandlingErrors children={responseAPI} /> : null }   
         <h1>Login</h1>
         <Inputs type='email' placeholder='Email' autoComplete='username' required value={email} onChange={(e) => setEmail(e.target.value)} />
         <Inputs type='password' placeholder='Senha' autoComplete='current-password' required value={password} onChange={(e) => setPassword(e.target.value)} />
-        <ButtonSubmit disabled={!REGEX_EMAIL.test(email) || password.length < minPwdLength}>{'Entrar'}</ButtonSubmit>
+        <ButtonSubmit>{'Entrar'}</ButtonSubmit>
         <p className={styles.register}>Não tem uma conta? <Link className={styles.link} to="/register">Cadastre-se</Link></p>
       </form>
-      { navigate ? <Navigate to="/home" /> : null }
-    </section>    
+    </section>       
   )
 }

@@ -8,10 +8,6 @@
   font-family:'Poppins', sans-serif; 
 }
 
-.root, body{
-
-}
-
 :root {
   --inputs: white;
   --warning-message: white;
@@ -26,5 +22,4 @@
   --gradient-color2:#BF7D2C 30.3%;
   --gradient-color5-1:#FBF8F3 183.94%;
   --gradient-color1: #141312a8;
-  height: 100%;
 }
