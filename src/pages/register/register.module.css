@@ -1,4 +1,5 @@
 @import "../../reset.css";
+
 .SectionLogin{
   display:flex;
   justify-items:center;
@@ -9,6 +10,10 @@
   width: 100vw;
   height: 117vh;
   background: linear-gradient(16.08deg, var(--gradient-color4), var(--gradient-color5));
+  overflow-x: hidden;
+  background-repeat: no-repeat;
+  background-size: contain;
+ 
 }
 .FormLogin{
   display:flex;
@@ -17,7 +22,7 @@
   align-items:center;
   flex-direction: column;
   gap: 15px;
-  margin-top: 3rem;
+  margin-top: 0rem;
   font-size: 1rem;
   font-family: 'Poppins', sans-serif;
 }
@@ -32,14 +37,14 @@
   font-family: 'Poppins', sans-serif;
 }
 
-section img{
+section .LogoImg{
   width: 15rem;
   margin-left: -47px;
-  margin-top: 60px;
+  margin-top: 7px;
 }
 
 .register{
-  margin: 4rem 1rem 0 1rem;
+  margin: 1rem 1rem 0 1rem;
   color: var(--color5);
   font-size: 1.5rem;
  }

@@ -1,0 +1,42 @@
+@import "../../reset.css";
+.sectionHome{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 18px;
+}
+.sectionHome figure{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap:22px;
+}
+.sectionHome figure .logo{
+   width: 10rem;
+}
+.sectionHome figure .Hamburguer{
+    width: 20rem;
+    border-radius: 10px;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    gap: 10px;
+}
+.suggest{
+    background-color:var(--color3);
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 0px 10px 10px 0px;
+    width: 50vw;
+    height: 2rem;
+    margin-right: 10rem;
+    text-align: center;
+}

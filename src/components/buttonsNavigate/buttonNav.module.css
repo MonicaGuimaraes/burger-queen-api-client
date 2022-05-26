@@ -1,0 +1,12 @@
+@import '../../reset.css';
+
+.buttonNav{
+  border-radius: 5px;
+  box-shadow: 0 0 1em var(--gradient-color1);
+  color: var(--color1);
+  background: var(--color2);
+  font-size: 1.2rem;
+  width: 100%;
+  height: 2rem;
+  cursor: pointer;
+}

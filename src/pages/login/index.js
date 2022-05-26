@@ -6,14 +6,16 @@ import HandlingErrors from '../../components/handlingErrors'
 import styles from './login.module.css'
 import logo from '../../assets/Logo.svg'
 import { setUserLocalStorage } from '../../components/localStorage'
+import { getPersistedUser } from '../../components/localStorage'
 import {
   Link,
   Navigate
 } from "react-router-dom"
 
 export default function Login(){
+  getPersistedUser()
 
-  const REGEX_EMAIL = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  const REGEX_EMAIL = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   const minPwdLength = 6
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
@@ -52,13 +54,13 @@ export default function Login(){
     
   return(
     <section className={styles.SectionLogin}>
-      <img src={logo} alt="logo"/>
+      <img className={styles.LogoImgLogin} src={logo} alt="logo"/>
       <form onSubmit={onSubmitForm} className={styles.FormLogin}>
       { showElement ? <HandlingErrors message={responseAPI} /> : null }   
         <h1>Login</h1>
         <Inputs type='email' placeholder='Email' autoComplete='username' required value={email} onChange={(e) => setEmail(e.target.value)} />
         <Inputs type='password' placeholder='Senha' autoComplete='current-password' required value={password} onChange={(e) => setPassword(e.target.value)} />
-        <ButtonSubmit action={'Entrar'} disabled={!REGEX_EMAIL.test(email) || password.length < minPwdLength}/>
+        <ButtonSubmit disabled={!REGEX_EMAIL.test(email) || password.length < minPwdLength}>{'Entrar'}</ButtonSubmit>
         <p className={styles.register}>Não tem uma conta? <Link className={styles.link} to="/register">Cadastre-se</Link></p>
       </form>
       { navigate ? <Navigate to="/home" /> : null }
