@@ -1,7 +1,8 @@
-@import '../../reset.css';
+@import url('../../reset.css');
+
 .buttonSubmit{
   border-radius: 5px;
-  background: linear-gradient(223.26deg, #BF7D2C 30.3%, #FBF8F3 183.94%);
+  background: linear-gradient(223.26deg, var(--gradient-color2), var(--gradient-color5-1));
   font-size: 1.2rem;
   width: 100%;
   height: 2rem;

@@ -4,7 +4,7 @@ import  Login from './index.js';
 import {render, screen, waitFor} from '@testing-library/react'
 import user from '@testing-library/user-event';
 import { loginAPI } from '../../API/LoginAPI' 
-import HandlingErrors from '../../components/handlingErrors'
+// import HandlingErrors from '../../components/handlingErrors'
 
 jest.mock('react-router-dom')
 jest.mock('../../API/LoginAPI')

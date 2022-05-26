@@ -18,7 +18,7 @@ export default function Register(){
   const [showElement, setShowElement] = useState(false)
   const [responseAPI, setResponseAPI] = useState('')
   const [navigate, setNavigate] = useState(false)
-  const REGEX_EMAIL = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  const REGEX_EMAIL = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   const minPwdLength = 6
   const minNameLength = 2 
   
@@ -59,7 +59,7 @@ export default function Register(){
       
   return(
     <section className={styles.SectionLogin}>
-      <img src={logo} alt='logo'/>
+      <img className={styles.LogoImg} src={logo} alt='logo'/>
       <form onSubmit={onSubmitForm} className={styles.FormLogin}>
         { showElement ? <HandlingErrors message={responseAPI}/> : null }   
         <h1>Register</h1>
@@ -72,7 +72,7 @@ export default function Register(){
           <option value='Cozinha'>Cozinha</option>
         </optgroup>
         </select>
-        <ButtonSubmit action={'Entrar'} disabled={!REGEX_EMAIL.test(email) || password.length < minPwdLength || name.length < minNameLength} />
+        <ButtonSubmit disabled={!REGEX_EMAIL.test(email) || password.length < minPwdLength || name.length < minNameLength} >{'Cadastrar'}</ButtonSubmit>
         <p className={styles.register}>Tem uma conta? <Link className={styles.link} to="/">Vá para o Login</Link></p>
       </form>
       { navigate ? <Navigate to="/home" /> : null }
