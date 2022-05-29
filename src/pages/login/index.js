@@ -61,7 +61,7 @@ export default function Login(){
         <h1>Login</h1>
         <Inputs type='email' placeholder='Email' autoComplete='username' required value={email} onChange={(e) => setEmail(e.target.value)} />
         <Inputs type='password' placeholder='Senha' autoComplete='current-password' required value={password} onChange={(e) => setPassword(e.target.value)} />
-        <ButtonSubmit>{'Entrar'}</ButtonSubmit>
+        <ButtonSubmit disabled={!REGEX_EMAIL.test(email) || password.length < minPwdLength}>{'Entrar'}</ButtonSubmit>
         <p className={styles.register}>Não tem uma conta? <Link className={styles.link} to="/register">Cadastre-se</Link></p>
       </form>
     </section>       

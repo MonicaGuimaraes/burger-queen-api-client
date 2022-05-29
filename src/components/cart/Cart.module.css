@@ -1,0 +1,36 @@
+.sectionClosed{
+    Display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: var(--color4);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 90%;
+}
+
+.sectionOpen{
+    Display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: var(--color4);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 24%;
+}
+.buttonOpenAndClosed{
+    position: absolute;
+    top: 0;
+}
+
+.formCart{
+  background:var(--color8);
+  position:relative;
+  top: 9rem;
+  width: 101vw;
+  height: 22vh;
+  padding: 27px;
+}

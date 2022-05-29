@@ -1,0 +1,15 @@
+@import '../../reset.css';
+
+.HomeButton{
+  border-radius: 50%;
+  background: var(--color2);
+  position: fixed;
+  height: 60px;
+  width: 60px;
+  top: 10px;
+  right: 10px;
+}
+
+.HomeImg {
+  width: 40px;
+}

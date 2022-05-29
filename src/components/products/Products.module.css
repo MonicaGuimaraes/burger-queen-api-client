@@ -1,0 +1,21 @@
+@import "../../reset.css";
+
+.imgProduct {
+  height: 3.5rem;
+  width: 4rem;
+  border-radius: 15px;
+}
+
+.nameProduct {
+  font-size: 1rem;
+}
+
+.priceProduct {
+  position: relative;
+  font-size: 0.9rem;
+  right: 2%;
+  
+}
+
+
+

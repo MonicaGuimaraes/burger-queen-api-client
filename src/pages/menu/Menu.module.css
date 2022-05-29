@@ -1,0 +1,71 @@
+@import url('../../reset.css');
+
+.menuSection {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--background-app);
+}
+
+.listProduct, .buttonAdd{
+  border-radius: 10px;
+}
+
+.ulProduct{
+  width: 100%;
+  display:flex;
+  align-items: center;
+  justify-content: center; 
+  flex-direction: column;
+}
+      
+
+.listProduct {
+  box-shadow: 0 0 1em var(--gradient-color1);
+  display: grid;
+  width: 92%;
+  grid-template-rows: none;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: none;
+  grid-auto-flow: dense;
+  grid-auto-rows: auto;
+  grid-auto-columns: auto;
+  gap: 0.5em;
+  background: var(--list-card);
+  margin: 2% 4%;
+  padding: 2%;
+  text-align: center;
+  justify-items: center;
+}
+
+.buttonAdd {
+  position: relative;
+  right: 6%;
+  background: var(--accept-button);
+  width: 100px;
+  height: 30px;
+}
+
+.logoImgLogin {
+  margin: 5% 10%;
+  width: 80%;
+}
+
+@media screen and (min-width: 768px) {
+  .logoImgLogin {
+    margin: 2% 30%;
+    width: 40%;
+  }
+
+  .ulProduct{
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .listProduct{
+    width: 45%;
+    margin: 2% 1%;
+  }
+      
+}
