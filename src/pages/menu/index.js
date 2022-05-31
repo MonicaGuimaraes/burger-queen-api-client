@@ -10,12 +10,17 @@ import ButtonHome from '../../components/buttonHome'
 export default function Menu(){
   const [list, setList] = useState([])
   const [cart, setCart] = useState([])
+  const [number, setNumber] = useState(0)
 
   useEffect(() => {
     menuAPI(getPersistedUser()).then((response) => { 
       setList(response)
     })
   }, [])
+  
+  useEffect(()=>{
+    console.log(cart)
+  }, [cart])
 
   return(
     <section className={styles.menuSection}>
@@ -29,11 +34,11 @@ export default function Menu(){
       </select>
       <ul className={styles.ulProduct} >
         {list.map((product) => (
-          <ProductItem product={product} key={product.id} onClick={() => setCart((prev) => [...prev, product])}/>
-          )
-        )}
+          <ProductItem product={product} key={product.id} onClick={() => {setCart((prev) => [...prev, product])}} />
+          ))
+        }
       </ul>
-      <Cart arrList={cart} setArrList={setCart}/>
+      <Cart arrList={cart} setArrList={setCart} number={number} setNumber={setNumber}/>
     </section>
   )
 }

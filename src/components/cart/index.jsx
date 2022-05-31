@@ -4,12 +4,12 @@ import { useState, useRef, useEffect } from 'react'
 import styles from './Cart.module.css'
 import ProductsCart from '../productsCart'
 
-export default function Cart({arrList, setArrList}) {
+export default function Cart({arrList, setArrList, number, setNumber}) {
   const [name, setName] = useState('')
   const [total, setTotal] = useState(0)
   const [list, setList] = useState([])
   const [mesa, setMesa] = useState(1)
-  const classOpenCart = useRef(null);
+  const classOpenCart = useRef(null)
   
   useEffect(()=>{
     console.log(arrList)
@@ -30,12 +30,15 @@ export default function Cart({arrList, setArrList}) {
   return (
   <> 
     <section ref={classOpenCart} className={styles.sectionClosed}> 
-    <button className={styles.buttonOpenAndClosed} onClick={CloseAndOpenCart}><img className={styles.ImgOpenAndClosed} src={Vector} alt="CloseAndOpenCart" /></button>
-      <div>
-        <ul>
+      <button className={styles.buttonOpenAndClosed} onClick={CloseAndOpenCart}><img className={styles.ImgOpenAndClosed} src={Vector} alt="CloseAndOpenCart" /></button>
+      <div className={styles.divCart}>
+        <ul className={styles.ulProducts}>
           {arrList.map((product) => {
-            <ProductsCart product={product} onClick/>
-          })}
+            return ( <ProductsCart product={product} onChange={(e) => setNumber(e.target.value)} 
+            onClickPlus={() => console.log('onclick') } 
+            number={number} onClickLess={() => setNumber((...prev)=> prev)} 
+            onclickTrash={setArrList((arrList) => arrList.splice(arrList.indexOf(product), 1))} />
+          )})}
         </ul>
         <form className={styles.formCart}>
           <label className={styles.DivName}>Nome do Cliente
