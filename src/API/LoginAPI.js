@@ -1,17 +1,16 @@
 export function loginAPI(valueEmail, valuePass){
+  const header = new Headers()
+  header.append('Content-Type', 'application/json') 
+  header.append('Accept', 'application/json')
  
   const options = {
     method: 'POST',
-    headers: { 
-      'Content-Type': 'application/x-www-form-urlencoded', 
-      'accept' : 'application/json'
-    },
-    body: 'email=' + valueEmail + '&password=' + valuePass
+    headers: header,
+    body: JSON.stringify({email: valueEmail, password: valuePass})
   }
     
   return fetch('https://lab-api-bq.herokuapp.com/auth', options)
-    .then((response) => response.json()) 
-    .then((response) =>  response)
+    .then((response) => response.json())
 }; 
 
 // Bad request no console.log

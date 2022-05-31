@@ -1,4 +1,5 @@
-@import "../../reset.css";
+@import '../../reset.css';
+
 
 .imgProduct {
   grid-row: span 3;
@@ -7,7 +8,7 @@
   border-radius: 15px;
 }
 
-.listProduct, .buttonAdd {
+.listProduct, .buttonAdd{
   border-radius: 10px;
 }
 

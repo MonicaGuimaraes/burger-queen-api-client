@@ -12,6 +12,7 @@
 
 :root {
   --accept-button: #85C070;
+  --accept-button-hover: #a1ee85;
   --background-app:#F0F0F0;
   --inputs: white;
   --warning-message: white;

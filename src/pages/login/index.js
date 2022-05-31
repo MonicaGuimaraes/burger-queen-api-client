@@ -57,7 +57,7 @@ export default function Login(){
       { navigate ? <Navigate to="/home" /> : null }
       <img className={styles.LogoImgLogin} src={logo} alt="logo"/>
       <form onSubmit={onSubmitForm} className={styles.FormLogin}>
-      { showElement ? <HandlingErrors children={responseAPI} /> : null }   
+      { showElement ? <HandlingErrors errorType={responseAPI} /> : null }   
         <h1>Login</h1>
         <Inputs type='email' placeholder='Email' autoComplete='username' required value={email} onChange={(e) => setEmail(e.target.value)} />
         <Inputs type='password' placeholder='Senha' autoComplete='current-password' required value={password} onChange={(e) => setPassword(e.target.value)} />

@@ -13,16 +13,7 @@ export default function Menu(){
 
   useEffect(() => {
     menuAPI(getPersistedUser()).then((response) => { 
-      setList(response.map((product) => {
-        return (
-          <li className={styles.listProduct} data-id={product.id} key={product.id}>
-            <ProductItem product={product} />
-            <button className={styles.buttonAdd} onClick={() => setCart((prev) => [...prev, product])}>
-              Adicionar
-            </button>
-          </li>
-        )
-      }))
+      setList(response)
     })
   }, [])
 
@@ -37,9 +28,12 @@ export default function Menu(){
         </optgroup>
       </select>
       <ul className={styles.ulProduct} >
-        {list}
+        {list.map((product) => (
+          <ProductItem product={product} key={product.id} onClick={() => setCart((prev) => [...prev, product])}/>
+          )
+        )}
       </ul>
-      <Cart arrList={cart} />
+      <Cart arrList={cart} setArrList={setCart}/>
     </section>
   )
 }

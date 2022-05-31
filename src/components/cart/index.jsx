@@ -3,17 +3,23 @@ import Inputs from '../inputs'
 import { useState, useRef, useEffect } from 'react'
 import styles from './Cart.module.css'
 
-export default function Cart({arrList}) {
+export default function Cart({arrList, setArrList}) {
   const [name, setName] = useState('')
   const [total, setTotal] = useState(0)
   const [list, setList] = useState([])
   const [mesa, setMesa] = useState(1)
   const classOpenCart = useRef(null);
   
+  useEffect(()=>{
+    console.log(arrList)
+  }, [arrList])
+  
 
-  // arrList.map((product) => {
-  //   setTotal((prev) => prev + product.price)
-  // });
+  // useEffect(()=>{
+  //   arrList.map((product) => {
+  //   console.log(product)
+  //   setTotal(1)
+  // });}, [arrList])
 
   
   function CloseAndOpenCart(){
@@ -24,20 +30,24 @@ export default function Cart({arrList}) {
   <>
     
     <section ref={classOpenCart} className={styles.sectionClosed}> 
-    <button className={styles.buttonOpenAndClosed} onClick={CloseAndOpenCart}>aaaaaa<img className={styles.ImgOpenAndClosed} src={Vector} alt="CloseAndOpenCart" /></button>
+    <button className={styles.buttonOpenAndClosed} onClick={CloseAndOpenCart}><img className={styles.ImgOpenAndClosed} src={Vector} alt="CloseAndOpenCart" /></button>
       <div>
         <ul>
-          {list}
+          {arrList.map(() => {
+            <ProductsCart product={product} onClick/>
+          })}
         </ul>
         <form className={styles.formCart}>
-          <label>Nome do Cliente
+          <label className={styles.DivName}>Nome do Cliente
             <Inputs className={styles.InputName} maxLength='20' type='text' placeholder='Cliente' required autoComplete='off' value={name} onChange={(e) => setName(e.target.value.trim())} />
           </label>
-          <label>Número Mesa
+          <label className={styles.DivName}>Número Mesa
             <Inputs className={styles.InputName} required max='10' min='1' type='number' placeholder='Mesa' autoComplete='off' value={mesa} onChange={(e) => setMesa(e.target.value)} />
           </label>
+          <div className={styles.TotalDiv} >
           <p>Total:{total}</p>
-          <button>Pronto</button>
+          <button className={styles.BntPronto}>Pronto</button>
+          </div>
         </form>
       </div>
     </section>
