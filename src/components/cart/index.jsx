@@ -2,6 +2,7 @@ import Vector from '../../assets/Vector.svg'
 import Inputs from '../inputs'
 import { useState, useRef, useEffect } from 'react'
 import styles from './Cart.module.css'
+import ProductsCart from '../productsCart'
 
 export default function Cart({arrList, setArrList}) {
   const [name, setName] = useState('')
@@ -27,13 +28,12 @@ export default function Cart({arrList, setArrList}) {
   }
 
   return (
-  <>
-    
+  <> 
     <section ref={classOpenCart} className={styles.sectionClosed}> 
     <button className={styles.buttonOpenAndClosed} onClick={CloseAndOpenCart}><img className={styles.ImgOpenAndClosed} src={Vector} alt="CloseAndOpenCart" /></button>
       <div>
         <ul>
-          {arrList.map(() => {
+          {arrList.map((product) => {
             <ProductsCart product={product} onClick/>
           })}
         </ul>
