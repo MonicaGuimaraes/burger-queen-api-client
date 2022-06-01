@@ -1,6 +1,6 @@
 import Inputs from '../../components/inputs'
 import ButtonSubmit from '../../components/buttons'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { registerAPI } from '../../API/RegisterAPI'
 import HandlingErrors from '../../components/handlingErrors'
 import styles from './register.module.css';

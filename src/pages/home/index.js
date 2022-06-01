@@ -4,7 +4,6 @@ import ButtonNav from '../../components/buttonsNavigate'
 import styles from './Home.module.css'
 import { logoutUser, getPersistedUser } from '../../components/localStorage'
 import { useNavigate} from 'react-router-dom'
-import { useState } from 'react'
 
 export default function Home(){
   const navigateTo = useNavigate()
