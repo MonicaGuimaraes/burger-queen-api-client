@@ -9,8 +9,10 @@ import ButtonHome from '../../components/buttonHome'
 
 export default function Menu(){
   const [list, setList] = useState([])
+  const [filterArr, setFilterArr] = useState([])
   const [cart, setCart] = useState([])
   const [number, setNumber] = useState(0)
+  
 
   useEffect(() => {
     menuAPI(getPersistedUser()).then((response) => { 
@@ -22,19 +24,38 @@ export default function Menu(){
     console.log(cart)
   }, [cart])
 
+  function filterMenu(menu) {
+    console.log(menu)
+    const typeMenu = {
+      'all-day' :  () => {
+        setFilterArr((list.filter((products) => products.type === 'all-day' ? true : false)))
+        console.log(filterArr)
+        return filterArr},
+      'breakfast' : () => {
+        setFilterArr(list.filter((products) => products.type === 'breakfast' ? true : false))
+        console.log(filterArr)
+        return filterArr},
+      'list' : () =>{
+        setFilterArr([])
+        return list} 
+    }
+    return typeMenu[menu]()
+  }
+
   return(
     <section className={styles.menuSection}>
       <ButtonHome />
       <img className={styles.logoImgLogin} src={logo} alt="logo"/>
-      <select  data-testid='selectMenu'>
-        <optgroup label='Menu'>
-          <option value='cafedamanha'>Atendimento</option>
-          <option value='almoçoejantar'>Almoço e Jantar</option>
-        </optgroup>
-      </select>
+      <div className={styles.containerBtnOptionsMenu}>       
+        <button className={styles.btnOptionsMenu} onClick={() => filterMenu('list')}>Cardápio</button>
+        <button className={styles.btnOptionsMenu} onClick={() => filterMenu('breakfast')} value='breakfast'>Café da Manha</button>
+        <button className={styles.btnOptionsMenu} onClick={()=> filterMenu('all-day')}>Almoço e Jantar</button>
+      </div>
       <ul className={styles.ulProduct} >
-        {list.map((product) => (
-          <ProductItem product={product} key={product.id} onClick={() => {setCart((prev) => [...prev, product])}} />
+        {filterArr.length >= 2 ? filterArr.map((product) => (
+            <ProductItem product={product} key={product.id} onClick={() => {setCart((prev) => [...prev, product]); setNumber((prev) => {})}} />
+          )) : list.map((product) => (
+            <ProductItem product={product} key={product.id} onClick={() => {setCart((prev) => [...prev, product]); setNumber((prev) => {})}} />
           ))
         }
       </ul>
