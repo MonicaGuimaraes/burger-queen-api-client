@@ -15,13 +15,6 @@ export default function Cart({arrList, setArrList, number, setNumber}) {
     console.log(arrList)
   }, [arrList])
   
-
-  // useEffect(()=>{
-  //   arrList.map((product) => {
-  //   console.log(product)
-  //   setTotal(1)
-  // });}, [arrList])
-
   
   function CloseAndOpenCart(){
     classOpenCart.current.classList.toggle(styles.sectionOpen)
