@@ -6,13 +6,12 @@ import ProductItem from '../../components/products'
 import logo from '../../assets/Logo.svg'
 import styles from './Menu.module.css'
 import ButtonHome from '../../components/buttonHome'
+import { onClickPlus } from '../../components/functions/manipulatingArray'
 
 export default function Menu(){
   const [list, setList] = useState([])
   const [filterArr, setFilterArr] = useState([])
   const [cart, setCart] = useState([])
-  const [number, setNumber] = useState(0)
-  
 
   useEffect(() => {
     menuAPI(getPersistedUser()).then((response) => { 
@@ -46,20 +45,20 @@ export default function Menu(){
     <section className={styles.menuSection}>
       <ButtonHome />
       <img className={styles.logoImgLogin} src={logo} alt="logo"/>
-      <div className={styles.containerBtnOptionsMenu}>       
+      <div className={styles.containerBtnOptionsMenu}>
+        <button className={styles.btnOptionsMenu} onClick={() => filterMenu('breakfast')}>Café da Manhã</button>
         <button className={styles.btnOptionsMenu} onClick={() => filterMenu('list')}>Cardápio</button>
-        <button className={styles.btnOptionsMenu} onClick={() => filterMenu('breakfast')} value='breakfast'>Café da Manha</button>
         <button className={styles.btnOptionsMenu} onClick={()=> filterMenu('all-day')}>Almoço e Jantar</button>
       </div>
       <ul className={styles.ulProduct} >
         {filterArr.length >= 2 ? filterArr.map((product) => (
-            <ProductItem product={product} key={product.id} onClick={() => {setCart((prev) => [...prev, product]); setNumber((prev) => {})}} />
+            <ProductItem product={product} key={product.id} onClick={() => {setCart(onClickPlus(cart, product))}} />
           )) : list.map((product) => (
-            <ProductItem product={product} key={product.id} onClick={() => {setCart((prev) => [...prev, product]); setNumber((prev) => {})}} />
+            <ProductItem product={product} key={product.id} onClick={() => {setCart(onClickPlus(cart, product))}} />
           ))
         }
       </ul>
-      <Cart arrList={cart} setArrList={setCart} number={number} setNumber={setNumber}/>
+      <Cart arrList={cart} setArrList={setCart} />
     </section>
   )
 }

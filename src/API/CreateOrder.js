@@ -1,4 +1,4 @@
-export function CreateOrderAPI(inputValue,user){
+export function CreateOrderAPI(obj, user){
     const header = new Headers()
     header.append('Authorization', user.token)
     header.append('Accept', 'application/json')
@@ -8,9 +8,9 @@ export function CreateOrderAPI(inputValue,user){
       method: 'POST',
       headers: header,
       body: JSON.stringify({
-        name: inputValue,
-        table: inputValue,
-        products: []
+        client: obj.inputName,
+        table: obj.inputTable,
+        products: obj.arrProducts
       })
     }
       

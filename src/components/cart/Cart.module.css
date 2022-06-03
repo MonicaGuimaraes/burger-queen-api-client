@@ -45,7 +45,9 @@
 .ulProducts {
   margin-top: 7%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
   overflow: auto;
 }
 
@@ -57,7 +59,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .TotalDiv {
@@ -91,14 +92,19 @@
   width: 100px;
   height: 30px;
   text-align: center;
-  border: black 2px;
+  border-color: black;
+  border: solid 2px;
   background-color: var(---color4)
 }
 
 @media screen and (max-width: 491px) {
- 
-
   .formCart {
     flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 971px) {
+  .divCart{
+    grid-template-rows: 80% 20%;
   }
 }
