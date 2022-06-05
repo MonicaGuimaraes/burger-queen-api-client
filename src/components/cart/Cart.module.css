@@ -1,0 +1,110 @@
+.sectionClosed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--color4);
+  height: 70%;
+  position: fixed;
+  top: 93%;
+  right: 0;
+  left: 0;
+  transition: top 1s;
+  border-radius: 20px 20px  0 0;
+}
+
+.sectionClosed.sectionOpen {
+  top: 30%;
+}
+
+.buttonOpenAndClosed {
+  position: absolute;
+  top: 0;
+  background: transparent;
+  width: 3rem;
+  transition: 1.2s;
+}
+
+.sectionClosed.sectionOpen .buttonOpenAndClosed {
+  transform: rotate(180deg);
+}
+
+.ImgOpenAndClosed {
+  width: 2rem;
+  margin-top: 6px;
+}
+
+.divCart{
+  height: 100%;
+  display: grid;
+  grid-template-rows: 60% 40%;
+  grid-template-columns: 100%;
+  gap:0.3rem;
+}
+
+.ulProducts {
+  margin-top: 7%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.formCart {
+  background: var(--color8);
+  width: 100vw;
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.TotalDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+
+.BntPronto {
+  width: 150px;
+  height: 7vh;
+  background-color: var(--color2);
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+
+.DivName {
+  font-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 50%;
+  justify-content: center;
+  padding: 5px;
+}
+
+.InputName {
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  border-color: black;
+  border: solid 2px;
+  background-color: var(---color4)
+}
+
+@media screen and (max-width: 491px) {
+  .formCart {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 971px) {
+  .divCart{
+    grid-template-rows: 80% 20%;
+  }
+}

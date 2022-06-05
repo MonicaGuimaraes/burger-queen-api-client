@@ -56,7 +56,7 @@ export default function Register(){
       setNavigate(navigateHome)
     })
   }
-      
+  
   return(
     <section className={styles.SectionLogin}>
       <img className={styles.LogoImg} src={logo} alt='logo'/>
@@ -66,7 +66,7 @@ export default function Register(){
         <Inputs type='text' placeholder='Nome' autoComplete='off' required value={name} onChange={(e) => setName(e.target.value)} />
         <Inputs type='email' placeholder='Email' autoComplete='off' required value={email} onChange={(e) => setEmail(e.target.value)} />
         <Inputs type='password' placeholder='Senha' autoComplete='current-password' required value={password} onChange={(e) => setPassword(e.target.value)} />
-        <select className={styles.select} data-testid='select' onChange={(e) => setRole(e.target.value)}>
+        <select className={styles.select} data-testid='select' onChange={(e) => {setRole(e.target.value)}}>
         <optgroup label="Cargo">
           <option value='Atendimento'>Atendimento</option>
           <option value='Cozinha'>Cozinha</option>

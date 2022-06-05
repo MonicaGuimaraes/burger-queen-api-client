@@ -1,0 +1,59 @@
+@import url('../../reset.css');
+
+.menuSection {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--background-app);
+}
+
+.ulProduct {
+  width: 100%;
+  display:flex;
+  align-items: center;
+  justify-content: center; 
+  flex-direction: column;
+  margin-bottom: 150px;
+}
+
+.logoImgLogin {
+  margin: 5% 30%;
+  width: 40%;
+}
+
+.containerBtnOptionsMenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.btnOptionsMenu {
+  background: var(--color2);
+  text-align: center;
+  border-radius: 10px;
+  width: 100px;
+  height: 60px;
+  font-size: 1rem;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .logoImgLogin {
+    margin: 2% 40%;
+    width: 20%;
+  }
+
+  .ulProduct{
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .ulProduct{
+    margin-bottom: 70px;
+  }
+}

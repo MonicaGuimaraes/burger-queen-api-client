@@ -1,0 +1,70 @@
+@import "../../reset.css";
+
+.imgProduct {
+  grid-row: span 3;
+  height: 3.5rem;
+  width: 4rem;
+  border-radius: 15px;
+}
+
+.listProduct, .buttonAdd {
+  border-radius: 10px;
+}
+
+.listProduct {
+  box-shadow: 0 0 1em var(--gradient-color1);
+  display: grid;
+  height: 150px;
+  width: 92%;
+  grid-template-rows: none;
+  grid-template-columns: 1fr 2fr 2fr;
+  gap:0.3rem;
+  background: var(--list-card);
+  margin: 2% 4%;
+  padding: 2%;
+}
+
+.buttonAdd {
+  background: var(--accept-button);
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.buttonAdd:hover {
+  background: var(--accept-button-hover);
+}
+
+.nameProduct {
+  text-align: center;
+  align-self: center;
+  margin-right: 15%;
+  grid-column: 2/4;
+  font-size: 1rem;
+}
+
+.priceProduct {
+  font-size: 0.9rem;
+  right: 2%;
+  grid-column: 3/4;
+  margin-left: 15%;
+}
+
+@media screen and (min-width: 768px) {
+  .ulProduct{
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .listProduct{
+    width: 45%;
+    margin: 2% 1%;
+  }   
+}
+
+@media screen and (min-width: 1024px) {
+  .listProduct{
+    width: 30%;
+    margin: 2% 1%;
+  }
+}

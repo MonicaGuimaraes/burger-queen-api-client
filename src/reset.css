@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;1,100;1,200&display=swap');
+
 *{
+  list-style: none;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,18 +10,51 @@
   font-family:'Poppins', sans-serif; 
 }
 
+body {
+  background: var(--background-app);
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  border-radius: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color2); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color2); 
+}
+
 :root {
+  --accept-button: #85C070;
+  --accept-button-hover: #a1ee85;
+  --background-app:#F0F0F0;
   --inputs: white;
   --warning-message: white;
+  --list-card: white;
   --error: red;
   --color1: #0D0300;
   --color2: #BF7D2C;
   --color3: #592202;
   --color4: #401201;
-  --gradient-color4: #592202 -2.01%;
   --color5: #F2F2F2;
+  --color6: rgb(154, 113, 26);
+  --color7: #E5E5E5;
+  --color8: #FFDDCA;
+  --gradient-color4: #592202 -2.01%;
   --gradient-color5:rgba(255, 230, 215, 0.452) 96.28%;
   --gradient-color2:#BF7D2C 30.3%;
   --gradient-color5-1:#FBF8F3 183.94%;
-  --gradient-color1: #141312a8;
+  --gradient-color1: #14131280;
 }

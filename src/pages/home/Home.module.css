@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 18px;
+  gap: 33px;
+  padding-bottom: 1rem;
 }
 
 .sectionHome figure {
@@ -29,18 +30,42 @@ nav {
   justify-content: center;
   flex-direction: column;
   width: 50%;
-  gap: 10px;
+  gap: 19px;
 }
-
+.buttonLogout{
+  border-radius: 5px;
+  box-shadow: 0 0 1em var(--gradient-color1);
+  color: var(--color1);
+  background: var(--gradient-color2);
+    width: 100%;
+    height: 3rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
 .suggest {
   background-color:var(--color3);
   padding: 10px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 10px 10px 10px 10px;
   width: 50vw;
-  height: 2rem;
-  margin-right: 10rem;
+  height: 5vh;
   text-align: center;
+}
+@media screen and (max-width:677px){
+  .suggest {
+    width: 82vw;
+    height: 10vh;
+    margin-right: 14rem;
+    border-radius: 0px 10px 10px 0px;
+  }
+  .sectionHome figure .Hamburguer {
+    width: 15rem;
+    border-radius: 10px;
+  }
+
+}
+@media screen and (max-width:550px){
+
 }
