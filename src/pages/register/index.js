@@ -36,7 +36,7 @@ export default function Register(){
       const hasError = response.code
       let message = ''
       let show = false
-      let navigateHome = false
+      let navigateLogin = false
 
       if(hasError){
         message = response.message;
@@ -50,10 +50,10 @@ export default function Register(){
       }, 10000)
 
       if(!hasError){
-        navigateHome = true
+        navigateLogin = true
       }
       
-      setNavigate(navigateHome)
+      setNavigate(navigateLogin)
     })
   }
   
@@ -66,16 +66,18 @@ export default function Register(){
         <Inputs type='text' placeholder='Nome' autoComplete='off' required value={name} onChange={(e) => setName(e.target.value)} />
         <Inputs type='email' placeholder='Email' autoComplete='off' required value={email} onChange={(e) => setEmail(e.target.value)} />
         <Inputs type='password' placeholder='Senha' autoComplete='current-password' required value={password} onChange={(e) => setPassword(e.target.value)} />
-        <select className={styles.select} data-testid='select' onChange={(e) => {setRole(e.target.value)}}>
-        <optgroup label="Cargo">
-          <option value='Atendimento'>Atendimento</option>
-          <option value='Cozinha'>Cozinha</option>
-        </optgroup>
-        </select>
-        <ButtonSubmit disabled={!REGEX_EMAIL.test(email) || password.length < minPwdLength || name.length < minNameLength} >{'Cadastrar'}</ButtonSubmit>
+        <label>Selecione um cargo:
+          <select className={styles.select} data-testid='select' required onChange={(e) => {setRole(e.target.value)}}>
+            <optgroup label="Cargo">
+              <option value='atendimento'>Atendimento</option>
+              <option value='cozinha'>Cozinha</option>
+            </optgroup>
+          </select>  
+        </label>
+        <ButtonSubmit disabled={!REGEX_EMAIL.test(email) || password.length < minPwdLength || name.length < minNameLength || role == null } >{'Cadastrar'}</ButtonSubmit>
         <p className={styles.register}>Tem uma conta? <Link className={styles.link} to="/">Vá para o Login</Link></p>
       </form>
-      { navigate ? <Navigate to="/home" /> : null }
+      { navigate ? <Navigate to="/" /> : null }
     </section>    
   )
 }

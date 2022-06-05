@@ -8,6 +8,7 @@ import styles from './Menu.module.css'
 import ButtonHome from '../../components/buttonHome'
 import { onClickPlus } from '../../components/functions/manipulatingArray'
 
+
 export default function Menu(){
   const [list, setList] = useState([])
   const [filterArr, setFilterArr] = useState([])
@@ -18,10 +19,6 @@ export default function Menu(){
       setList(response)
     })
   }, [])
-  
-  useEffect(()=>{
-    console.log(cart)
-  }, [cart])
 
   function filterMenu(menu) {
     console.log(menu)

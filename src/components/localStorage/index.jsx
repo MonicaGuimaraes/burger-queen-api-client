@@ -1,7 +1,9 @@
 import { Navigate } from "react-router-dom";
 
 export function setUserLocalStorage(objUser){
-  localStorage.setItem('user', JSON.stringify(objUser))
+  if(typeof objUser === 'object'){
+    localStorage.setItem('user', JSON.stringify(objUser))
+  }
 }
 
 export function getPersistedUser() {

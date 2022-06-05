@@ -31,6 +31,7 @@ export default function Login(){
       let message = ''
       let show = false
       let navigateHome = false
+      let user = ''
       
       if(hasError){
         message = response.message;
@@ -45,9 +46,10 @@ export default function Login(){
 
       if(!hasError){
         navigateHome = true
-        setUserLocalStorage(response)
+        user = response
       }
-      
+
+      setUserLocalStorage(user)
       setNavigate(navigateHome)
     })
   }

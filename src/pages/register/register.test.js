@@ -12,14 +12,12 @@ jest.mock('../../API/RegisterAPI');
 
     test('Deverá autenticar um usuário com sucesso', async () =>{
       registerAPI.mockResolvedValueOnce({})
-      // const navigate = jest.fn()
-      // navigate.mockReturnValueOnce()
       render(<Register />)
       const objUser = {
       email: 'sample@mail.com', 
       name: 'João', 
       password: 'sample', 
-      role: 'Cozinha' }
+      role: 'cozinha' }
       
       const inputName = screen.getByPlaceholderText(/Nome/i)
       user.type(inputName, objUser.name)
@@ -38,14 +36,14 @@ jest.mock('../../API/RegisterAPI');
       expect(registerAPI).toHaveBeenCalledTimes(1)
     })
 
-     test('Verificando se a senha possui mais de 6 digitos',() =>{
-        render(<Register />)
-        const password = '12345'
-        const inputPassword = screen.getByPlaceholderText(/Senha/i)
-        user.type(inputPassword, password)
+    test('Verificando se a senha possui mais de 6 digitos',() =>{
+      render(<Register />)
+      const password = '12345'
+      const inputPassword = screen.getByPlaceholderText(/Senha/i)
+      user.type(inputPassword, password)
 
-        expect(registerAPI).toHaveBeenCalledTimes(0)
-     } )
+      expect(registerAPI).toHaveBeenCalledTimes(0)
+    })
   
 //     test('Não deverá chamar a API se o email estiver errado', () =>{
 //       loginAPI.mockClear()

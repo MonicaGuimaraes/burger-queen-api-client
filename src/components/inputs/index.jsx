@@ -6,9 +6,3 @@ export default function Inputs(props) {
       </>
     );
   }
-// import { useState } from 'react';
-
-// export default function Inputs({typeInput,placeholder}) {
-//  
-// }
-// sugestão: colocar o input de email e senha dentro do inputs()
