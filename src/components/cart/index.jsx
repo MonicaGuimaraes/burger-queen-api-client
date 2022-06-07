@@ -4,8 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import styles from './Cart.module.css'
 import ProductsCart from '../productsCart'
 import { CreateOrderAPI } from '../../API/CreateOrder'
-import { getPersistedUser }from '../localStorage/index'
-import { deleteItemArray, numberOfRepeatedElements, onClickMinus, onClickPlus, sumTotalPrice } from '../../components/functions/manipulatingArray'
+import { deleteItemArray, removeProductFromCart, addProductToCart, sumTotalPrice } from '../../components/functions/manipulatingArray'
 import HandlingErrors from '../handlingErrors'
 
 export default function Cart({arrList, setArrList}) {
@@ -15,11 +14,9 @@ export default function Cart({arrList, setArrList}) {
   const [responseAPI, setResponseAPI] = useState('')
   const [showElement, setShowElement] = useState(false)
   const classOpenCart = useRef(null)
-  const [arrWhitoutRepeat, setArrWhitoutRepeat] = useState([])
-  
+
   useEffect(()=>{ 
     setTotal(sumTotalPrice(arrList))
-    setArrWhitoutRepeat([...new Set([...arrList])])
   }, [total, arrList])
 
   function closeAndOpenCart(){
@@ -28,22 +25,18 @@ export default function Cart({arrList, setArrList}) {
 
   function sendOrder(e){
     e.preventDefault()
-    
-    const list = arrWhitoutRepeat.map((product) => {
-       return {id: product.id, qtd: numberOfRepeatedElements(arrList, product)}
-    })
 
-    console.log(list)
+    const list = arrList.map((product) => {
+       return {id: product.id, qtd: product.qtd}
+    })
 
     const obj = {
       inputName: name,
       inputTable: table,
       arrProducts: list,
     }
-    
-    const user = getPersistedUser() 
-    
-    CreateOrderAPI(obj, user)
+  
+    CreateOrderAPI(obj)
     .then((response) => {
       console.log(response)
       const hasError = response.code
@@ -77,7 +70,6 @@ export default function Cart({arrList, setArrList}) {
       setTable(resetTable)
       setTotal(resetTotal)
     })
-    
   }
 
   return (
@@ -95,16 +87,16 @@ export default function Cart({arrList, setArrList}) {
       </button>
       <div className={styles.divCart}>
         <ul className={styles.ulProducts}>
-          { arrWhitoutRepeat.length !== 0 ? arrWhitoutRepeat.map((product, index) => {
+          { arrList.length !== 0 ? arrList.map((product, index) => {
               return ( 
-              <ProductsCart 
-              product={product} 
-              key={index} 
+              <ProductsCart
+              product={product}
+              key={index}
               dataId={index}
-              onClickPlus={() => setArrList(onClickPlus(arrList, product))}
-              qtd={numberOfRepeatedElements(arrList, product)}
-              onClickLess={() => setArrList(onClickMinus(product, arrList))}
-              onclickTrash={() => setArrList(deleteItemArray(product, arrList))}/>   
+              onClickPlus={() => setArrList(addProductToCart(arrList, product))}
+              qtd={product.qtd}
+              onClickLess={() => setArrList(removeProductFromCart(arrList, product))}
+              onclickTrash={() => setArrList(deleteItemArray(arrList, product))}/>   
             )}) 
             :
             <p className={styles.paragraph}>Ainda não tem nada no carrinho!</p> 

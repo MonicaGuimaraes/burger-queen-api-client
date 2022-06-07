@@ -22,6 +22,7 @@ const productsCart =[
     sub_type: "hamburguer",
     type: "all-day",
     updatedAt: "2021-02-16T13:11:54.173Z",
+    qtd: 3
   },
   {
     complement: "queijo",
@@ -33,18 +34,19 @@ const productsCart =[
     price: 12,
     sub_type: "hamburguer",
     type: "all-day",
-    updatedAt: "2021-02-16T13:11:54.173Z"
+    updatedAt: "2021-02-16T13:11:54.173Z",
+    qtd: 1
   }
 ]
 
-// const order = {
-//   inputName: 'test',
-//   inputTable: 1,
-//   arrProducts: [
-//     {id: 40, qtd: 1},
-//     {id: 31, qtd: 1}
-//   ]
-// }
+const order = {
+  inputName: 'test',
+  inputTable: 1,
+  arrProducts: [
+    {id: 40, qtd: 3},
+    {id: 31, qtd: 1}
+  ]
+}
 
 describe('Cart', () => {
   beforeEach(() => {
@@ -56,29 +58,34 @@ describe('Cart', () => {
     await waitFor(() => 
       expect(screen.getAllByText('1X Hambúrguer simples vegetariano com queijo')).toHaveLength(1)
     )
-    expect(screen.getAllByText('1X Hambúrguer simples frango com ovo')).toHaveLength(1)
-    expect(screen.getByText('Total:23.00')).toBeInTheDocument()
+    expect(screen.getAllByText('3X Hambúrguer simples frango com ovo')).toHaveLength(1)
+    expect(screen.getByText('Total:45.00')).toBeInTheDocument()
   })
 
-  // test('Deve chamar CreateOrderAPI com o objeto order', async () => {
-  //   // mockar localStorage
-  //   CreateOrderAPI.mockResolvedValueOnce({})
-  //   render(<Cart arrList={productsCart} setArrList={jest.fn}/>)
-  //   const inputClient = screen.getByLabelText('Nome do Cliente')
-  //   user.type(inputClient, 'test')
-  //   const buttonOrder = screen.getByText('Pronto')
-  //   user.click(buttonOrder)
-  //   await waitFor(() => 
-  //     expect(CreateOrderAPI).toHaveBeenCalledWith(order, null)
-  //   )
-  //   expect(CreateOrderAPI).toHaveBeenCalledTimes(1)
-  // })
+  test('Deve chamar CreateOrderAPI com o objeto order', async () => {
+    // mockar localStorage
+    CreateOrderAPI.mockResolvedValueOnce({})
+    render(<Cart arrList={productsCart} setArrList={jest.fn}/>)
+    const inputClient = screen.getByLabelText('Nome do Cliente')
+    user.type(inputClient, 'test')
+    const buttonOrder = screen.getByText('Pronto')
+    user.click(buttonOrder)
+    await waitFor(() => 
+      expect(CreateOrderAPI).toHaveBeenCalledWith(order)
+    )
+    expect(CreateOrderAPI).toHaveBeenCalledTimes(1)
+  })
 
-  test('Não deve chamar CreateOrderAPI', async () => {
+  test('Não deve chamar CreateOrderAPI', () => {
     render(<Cart arrList={productsCart} setArrList={jest.fn}/>)
     const buttonOrder = screen.getByText('Pronto')
     user.click(buttonOrder)
     expect(CreateOrderAPI).toHaveBeenCalledTimes(0)
+  })
+
+  test('Esperamos que a frase "Ainda não tem nada no carrinho!" apareça',() => {
+    render(<Cart arrList={[]} setArrList={jest.fn}/>)
+    expect(screen.getByText('Ainda não tem nada no carrinho!')).toBeInTheDocument()
   })
 
 })

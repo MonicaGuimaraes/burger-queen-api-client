@@ -7,15 +7,14 @@ export function setUserLocalStorage(objUser){
 }
 
 export function getPersistedUser() {
-  const authUserKey = Object.keys(window.localStorage).find((item) => item.startsWith('user'));
-  let user = localStorage.getItem(authUserKey);
+  let user = localStorage.getItem('user');
   user = JSON.parse(user);
   return user;
 }
 
 export function PrivateRoute({children}) {
-  const authUserKey = Object.keys(window.localStorage).find((item) => item.startsWith('user'));
-  return authUserKey !== undefined ? children : <Navigate to="/" />
+  const user = getPersistedUser();
+  return user !== undefined ? children : <Navigate to="/" />
 }
 
 export function logoutUser() {

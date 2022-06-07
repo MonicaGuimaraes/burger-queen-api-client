@@ -9,6 +9,8 @@ import { loginAPI } from '../../API/LoginAPI'
 jest.mock('react-router-dom')
 jest.mock('../../API/LoginAPI')
 
+
+
 describe("LoginPage", () => {
   beforeEach(() => {
     loginAPI.mockClear()

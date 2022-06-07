@@ -6,7 +6,7 @@ import ProductItem from '../../components/products'
 import logo from '../../assets/Logo.svg'
 import styles from './Menu.module.css'
 import ButtonHome from '../../components/buttonHome'
-import { onClickPlus } from '../../components/functions/manipulatingArray'
+import { addProductToCart } from '../../components/functions/manipulatingArray'
 
 
 export default function Menu(){
@@ -49,9 +49,9 @@ export default function Menu(){
       </div>
       <ul className={styles.ulProduct} >
         {filterArr.length >= 2 ? filterArr.map((product) => (
-            <ProductItem product={product} key={product.id} onClick={() => {setCart(onClickPlus(cart, product))}} />
+            <ProductItem product={product} key={product.id} onClick={() => {setCart(addProductToCart(cart, product))}} />
           )) : list.map((product) => (
-            <ProductItem product={product} key={product.id} onClick={() => {setCart(onClickPlus(cart, product))}} />
+            <ProductItem product={product} key={product.id} onClick={() => {setCart(addProductToCart(cart, product))}} />
           ))
         }
       </ul>

@@ -1,28 +1,40 @@
-export function onClickPlus(arrList, product){
-  const currentList = [...arrList, product]
-  return currentList
+export function addProductToCart(arrList, product){
+  let currentList
+  const arrHaveProductID = arrList.filter((element) => element.id === product.id)
+  if(arrHaveProductID.length === 0){
+    product.qtd = 1
+    currentList = [...arrList, product]
+    console.log(product)
+    console.log(currentList)
+    return currentList
+  } else {
+    product.qtd += 1
+    console.log(product)
+    console.log(arrList)
+    return [...arrList]
+  }
 }
 
 export function sumTotalPrice(arrList){
   const initialValue = 0
   const currentList = [...arrList]
-  return currentList.map(product => product.price).reduce((previousValue, currentValue) =>
+  return currentList.map(product => product.price*product.qtd).reduce((previousValue, currentValue) =>
     previousValue + currentValue, initialValue)
 }
 
-export function onClickMinus(product, arrList){
-  const currentList = [...arrList]
-  const index = currentList.indexOf(product)
-  console.log(index)
-  const productSelected = currentList.splice(index, 1)
-  return currentList.filter((element) => element !== productSelected)
+export function removeProductFromCart(arrList, product){
+  let currentList = []
+  if(product.qtd === 1){ 
+    currentList = arrList.filter((element) => element.id !== product.id)
+  } else {
+    product.qtd -= 1
+    currentList = [...arrList]
+  }
+
+  return currentList
 }
 
-export function numberOfRepeatedElements(arrList, product) {
-  return arrList.filter(food => food === product).length
-}
-
-export function deleteItemArray(product, arrList){
+export function deleteItemArray(arrList, product){
   const currentList = [...arrList]
-  return currentList.filter((element) => element !== product)
+  return currentList.filter((element) => element.id !== product.id)
 }

@@ -1,0 +1,6 @@
+@import '../../reset.css';
+
+.sectionCommand {
+  background: var(--command);
+
+}
