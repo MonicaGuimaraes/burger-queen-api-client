@@ -1,11 +1,10 @@
 import React from 'react';
-import { useState } from 'react';
 import '@testing-library/jest-dom';
 import Cart from './index.jsx';
 import {render, screen, waitFor} from '@testing-library/react'
 import user from '@testing-library/user-event';
 import { CreateOrderAPI } from '../../API/CreateOrder';
-import { getPersistedUser } from '../localStorage/index.jsx'
+
 
 jest.mock('react-router-dom')
 jest.mock('../../API/CreateOrder')

@@ -2,5 +2,6 @@
 
 .sectionCommand {
   background: var(--command);
+  border-radius: 5px;
 
 }

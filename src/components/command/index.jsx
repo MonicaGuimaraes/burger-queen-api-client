@@ -1,7 +1,7 @@
 import styles from './Command.module.css'
 import { standardizeName } from '../functions/standardizeName'
 
-export default function Command({ order, onClickStatus, ClassNameButton }) {
+export default function Command({order, onClickStatus, ClassNameButton,children}) {
 
   return(
     <li className={styles.sectionCommand}>
@@ -11,7 +11,7 @@ export default function Command({ order, onClickStatus, ClassNameButton }) {
         const name = standardizeName(product)
         return ( <p>{product.qtd}X {name}</p> )
       })}
-      <button className={ClassNameButton} onClick={onClickStatus}></button>
+      <button className={ClassNameButton} onClick={onClickStatus}>{children}</button>
     </li>
   )
 }

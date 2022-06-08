@@ -15,4 +15,8 @@
     overflow: auto; 
     width: 50vw;
     height: 50vh;
+    gap: 26px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

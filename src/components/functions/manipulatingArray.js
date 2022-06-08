@@ -1,25 +1,21 @@
-export function addProductToCart(arrList, product){
-  let currentList
-  const arrHaveProductID = arrList.filter((element) => element.id === product.id)
-  if(arrHaveProductID.length === 0){
-    product.qtd = 1
-    currentList = [...arrList, product]
-    console.log(product)
-    console.log(currentList)
-    return currentList
+export function addProductToCart(cart, product){
+  const newCart =[...cart]
+  const productIndexOnCart = cart.findIndex((element) => element.id === product.id)
+  const hasProductOnCart = productIndexOnCart < 0
+  if(hasProductOnCart){
+    const currentProduct ={...product, qtd: 1}
+    newCart.push(currentProduct)
   } else {
-    product.qtd += 1
-    console.log(product)
-    console.log(arrList)
-    return [...arrList]
+    const productOnCart = newCart[productIndexOnCart]
+    const currentProduct ={...productOnCart, qtd: productOnCart.qtd + 1}
+    newCart[productIndexOnCart] = currentProduct
   }
+  return newCart
 }
 
-export function sumTotalPrice(arrList){
+export function sumTotalPrice(cart){
   const initialValue = 0
-  const currentList = [...arrList]
-  return currentList.map(product => product.price*product.qtd).reduce((previousValue, currentValue) =>
-    previousValue + currentValue, initialValue)
+  return cart.reduce((sum, product) => sum + (product.price * product.qtd), initialValue)
 }
 
 export function removeProductFromCart(arrList, product){

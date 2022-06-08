@@ -1,27 +1,10 @@
 import styles from './containerOrder.module.css'
 import Vector from '../../assets/Vector.svg'
 import Command from '../command'
+import { callOrdersAPI } from '../../API/CallOrdersAPI'
+import { useEffect, useState } from 'react'
 
-export default function ContainerOrder({children, onclick, onClickStatus, ClassNameButton}){
-  const obj = {
-    id: 0,
-    client_name: "string",
-    user_id: 0,
-    table: 0,
-    status: "string",
-    processedAt: "2022-06-05",
-    createdAt: "2022-06-05",
-    updatedAt: "2022-06-05",
-    Products: [
-      {
-        id: 0,
-        name: "string",
-        flavor: "string",
-        complement: "string",
-        qtd: 0
-      }
-    ]
-  }
+export default function ContainerOrder({children, onclick, onClickStatus, ClassNameButton, orders}){
   
   return(
     <section className={styles.sectionOrder}>
@@ -33,9 +16,12 @@ export default function ContainerOrder({children, onclick, onClickStatus, ClassN
         </button>
       <div className={styles.sectionOpenAndClosedOrder}>       
         <ul className={styles.ulOrder}>
-         <Command order={obj} onClickStatus={onClickStatus} ClassNameButton={ClassNameButton} />
+          {orders.length !== 0 ? orders.map((order) => (
+            <Command order={order} onClickStatus={onClickStatus} ClassNameButton={ClassNameButton}></Command>)
+          ): (<p>Não há comandas aqui.</p>)}
         </ul>
       </div>
     </section>
   )
 }
+// npm install date-fns --save
