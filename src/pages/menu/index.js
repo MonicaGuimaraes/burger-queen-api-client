@@ -48,7 +48,7 @@ export default function Menu(){
         <button className={styles.btnOptionsMenu} onClick={()=> filterMenu('all-day')}>Almoço e Jantar</button>
       </div>
       <ul className={styles.ulProduct} >
-        {filterArr.length >= 2 ? filterArr.map((product) => (
+        {filterArr.length >= 1 ? filterArr.map((product) => (
             <ProductItem product={product} key={product.id} onClick={() => {setCart(addProductToCart(cart, product))}} />
           )) : list.map((product) => (
             <ProductItem product={product} key={product.id} onClick={() => {setCart(addProductToCart(cart, product))}} />
