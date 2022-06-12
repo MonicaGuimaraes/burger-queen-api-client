@@ -38,12 +38,16 @@ body {
 
 :root {
   --accept-button: #85C070;
+  --in-preparation-hover: rgba(248, 232, 8, 0.911);
   --accept-button-hover: #a1ee85;
+  --in-preparation: #F7FB32;
   --background-app:#F0F0F0;
+  --font-car : white;
   --inputs: white;
   --warning-message: white;
   --list-card: white;
   --error: red;
+  --command: #D7BC9C;
   --color1: #0D0300;
   --color2: #BF7D2C;
   --color3: #592202;
@@ -52,6 +56,7 @@ body {
   --color6: rgb(154, 113, 26);
   --color7: #E5E5E5;
   --color8: #FFDDCA;
+  --color2-hover: #cc832bde;
   --gradient-color4: #592202 -2.01%;
   --gradient-color5:rgba(255, 230, 215, 0.452) 96.28%;
   --gradient-color2:#BF7D2C 30.3%;

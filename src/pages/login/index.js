@@ -2,18 +2,16 @@ import Inputs from '../../components/inputs'
 import ButtonSubmit from '../../components/buttons'
 import { loginAPI } from '../../API/LoginAPI'
 import { useState } from "react"
-import HandlingErrors from '../../components/handlingErrors'
+import HandlingResponseAPI from '../../components/handlingResponseAPI'
 import styles from './login.module.css'
 import logo from '../../assets/Logo.svg'
 import { setUserLocalStorage } from '../../components/localStorage'
-import { getPersistedUser } from '../../components/localStorage'
 import {
   Link,
   Navigate
 } from "react-router-dom"
 
 export default function Login(){
-  getPersistedUser()
 
   const REGEX_EMAIL = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   const minPwdLength = 6
@@ -26,12 +24,12 @@ export default function Login(){
   function onSubmitForm(e) {
     e.preventDefault()
     loginAPI(email, password).then((response) => {
-      console.log(response)
       const hasError = response.code
       let message = ''
       let show = false
       let navigateHome = false
-      
+      let user = ''
+
       if(hasError){
         message = response.message;
         show = true
@@ -45,9 +43,10 @@ export default function Login(){
 
       if(!hasError){
         navigateHome = true
-        setUserLocalStorage(response)
+        user = response
       }
-      
+
+      setUserLocalStorage(user)
       setNavigate(navigateHome)
     })
   }
@@ -57,9 +56,16 @@ export default function Login(){
       { navigate ? <Navigate to="/home" /> : null }
       <img className={styles.LogoImgLogin} src={logo} alt="logo"/>
       <form onSubmit={onSubmitForm} className={styles.FormLogin}>
-      { showElement ? <HandlingErrors errorType={responseAPI} /> : null }   
+      { showElement ? <HandlingResponseAPI message={responseAPI} /> : null }   
         <h1>Login</h1>
-        <Inputs type='email' placeholder='Email' autoComplete='username' required value={email} onChange={(e) => setEmail(e.target.value)} />
+        <Inputs 
+          type='email' 
+          placeholder='Email' 
+          autoComplete='username' 
+          required 
+          value={email} 
+          onChange={(e) => setEmail(e.target.value)}
+          />
         <Inputs type='password' placeholder='Senha' autoComplete='current-password' required value={password} onChange={(e) => setPassword(e.target.value)} />
         <ButtonSubmit disabled={!REGEX_EMAIL.test(email) || password.length < minPwdLength}>{'Entrar'}</ButtonSubmit>
         <p className={styles.register}>Não tem uma conta? <Link className={styles.link} to="/register">Cadastre-se</Link></p>

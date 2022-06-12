@@ -1,28 +1,49 @@
-export function onClickPlus(arrList, product){
-  const currentList = [...arrList, product]
-  return currentList
+export function addProductToCart(cart, product){
+  const newCart =[...cart]
+  const productIndexOnCart = cart.findIndex((element) => element.id === product.id)
+  const hasProductOnCart = productIndexOnCart < 0
+  if(hasProductOnCart){
+    const currentProduct ={...product, qtd: 1}
+    newCart.push(currentProduct)
+  } else {
+    const productOnCart = newCart[productIndexOnCart]
+    const currentProduct ={...productOnCart, qtd: productOnCart.qtd + 1}
+    newCart[productIndexOnCart] = currentProduct
+  }
+  return newCart
 }
 
-export function sumTotalPrice(arrList){
+export function sumTotalPrice(cart){
   const initialValue = 0
-  const currentList = [...arrList]
-  return currentList.map(product => product.price).reduce((previousValue, currentValue) =>
-    previousValue + currentValue, initialValue)
+  return cart.reduce((sum, product) => sum + (product.price * product.qtd), initialValue)
 }
 
-export function onClickMinus(product, arrList){
-  const currentList = [...arrList]
-  const index = currentList.indexOf(product)
-  console.log(index)
-  const productSelected = currentList.splice(index, 1)
-  return currentList.filter((element) => element !== productSelected)
+export function removeProductFromCart(cart, product){
+  let newCart = [...cart]
+  if(product.qtd === 1){
+    newCart = cart.filter((element) => element.id !== product.id)
+  } else {
+    const productIndexOnCart = cart.findIndex((element) => element.id === product.id)
+    const productOnCart = newCart[productIndexOnCart]
+    const currentProduct = {...productOnCart, qtd: productOnCart.qtd - 1}
+    newCart[productIndexOnCart] = currentProduct
+  }
+  return newCart
 }
 
-export function numberOfRepeatedElements(arrList, product) {
-  return arrList.filter(food => food === product).length
+export function deleteItemArray(arrList, product){
+  const currentList = [...arrList]
+  return currentList.filter((element) => element.id !== product.id)
 }
 
-export function deleteItemArray(product, arrList){
-  const currentList = [...arrList]
-  return currentList.filter((element) => element !== product)
+export function organizingArray(arr){
+  return arr.sort((a,b)=>{
+    if (a.createdAt > b.createdAt) {
+      return -1;
+    }
+    if (a.createdAt < b.createdAt) {
+      return 1;
+    }
+    return 0;
+  })
 }

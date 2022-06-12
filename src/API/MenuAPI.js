@@ -1,6 +1,7 @@
-export function menuAPI(user){
+import { getPersistedUser } from '../components/localStorage/index.jsx'
+export function menuAPI(){
     const header = new Headers()
-    header.append('Authorization', user.token)
+    header.append('Authorization', getPersistedUser().token)
     header.append('Accept', 'application/json')
 
     const options = {

@@ -6,7 +6,8 @@ import ProductItem from '../../components/products'
 import logo from '../../assets/Logo.svg'
 import styles from './Menu.module.css'
 import ButtonHome from '../../components/buttonHome'
-import { onClickPlus } from '../../components/functions/manipulatingArray'
+import { addProductToCart } from '../../components/functions/manipulatingArray'
+
 
 export default function Menu(){
   const [list, setList] = useState([])
@@ -18,10 +19,6 @@ export default function Menu(){
       setList(response)
     })
   }, [])
-  
-  useEffect(()=>{
-    console.log(cart)
-  }, [cart])
 
   function filterMenu(menu) {
     console.log(menu)
@@ -51,10 +48,10 @@ export default function Menu(){
         <button className={styles.btnOptionsMenu} onClick={()=> filterMenu('all-day')}>Almoço e Jantar</button>
       </div>
       <ul className={styles.ulProduct} >
-        {filterArr.length >= 2 ? filterArr.map((product) => (
-            <ProductItem product={product} key={product.id} onClick={() => {setCart(onClickPlus(cart, product))}} />
+        {filterArr.length >= 1 ? filterArr.map((product) => (
+            <ProductItem product={product} key={product.id} onClick={() => {setCart(addProductToCart(cart, product))}} />
           )) : list.map((product) => (
-            <ProductItem product={product} key={product.id} onClick={() => {setCart(onClickPlus(cart, product))}} />
+            <ProductItem product={product} key={product.id} onClick={() => {setCart(addProductToCart(cart, product))}} />
           ))
         }
       </ul>

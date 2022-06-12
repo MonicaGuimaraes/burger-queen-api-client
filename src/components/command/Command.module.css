@@ -1,0 +1,18 @@
+@import '../../reset.css';
+
+.sectionCommand {
+  background: var(--command);
+  border-radius: 5px;
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2%;
+  text-align: left;
+}
+
+@media screen and (min-width: 1024px) {
+  .sectionCommand {
+    width: 44%;
+  }
+}
