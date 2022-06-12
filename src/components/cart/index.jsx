@@ -50,6 +50,13 @@ export default function Cart({arrList, setArrList}) {
       if(hasError){
         message = response.message;
         show = true
+      } else {
+        show = true
+        message = 'successOrder'
+        resetName = ''
+        resetTable = 1
+        resetTotal = 0
+        resetArrList = []
       }
 
       setResponseAPI(message)
@@ -57,13 +64,6 @@ export default function Cart({arrList, setArrList}) {
       setTimeout(() => {
         setShowElement(false)
       }, 5000)
-
-      if(!hasError){
-        resetName = ''
-        resetTable = 1
-        resetTotal = 0
-        resetArrList = []
-      }
 
       setArrList(resetArrList)
       setName(resetName)

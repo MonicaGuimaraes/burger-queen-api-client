@@ -1,12 +1,61 @@
 @import url('../../reset.css');
 
-.MainOrder{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 18px;
+.MainOrder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 18px;
 }
-.LogoImg{
-   width: 15rem;
+
+.divContainersOrder {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center; 
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.LogoImg {
+  width: 15rem;
+}
+
+.buttonPending,
+.buttonPreparation,
+.buttonReady {
+  border-radius: 5px;
+  padding: 1%;
+}
+
+.buttonPending {
+  background: var(--color2);
+}
+
+.buttonPreparation {
+  background: var(--in-preparation);
+}
+
+.buttonReady {
+  background: var(--accept-button);
+}
+
+.buttonPreparation:hover {
+  background: var(--in-preparation-hover);
+}
+
+.buttonReady:hover {
+  background: var(--accept-button-hover);
+}
+
+.buttonPending:hover {
+  background: var(--color2-hover);
+}
+
+@media screen and (min-width: 1024px) {
+  .divContainersOrder {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }

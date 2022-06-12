@@ -18,19 +18,32 @@ export function sumTotalPrice(cart){
   return cart.reduce((sum, product) => sum + (product.price * product.qtd), initialValue)
 }
 
-export function removeProductFromCart(arrList, product){
-  let currentList = []
-  if(product.qtd === 1){ 
-    currentList = arrList.filter((element) => element.id !== product.id)
+export function removeProductFromCart(cart, product){
+  let newCart = [...cart]
+  if(product.qtd === 1){
+    newCart = cart.filter((element) => element.id !== product.id)
   } else {
-    product.qtd -= 1
-    currentList = [...arrList]
+    const productIndexOnCart = cart.findIndex((element) => element.id === product.id)
+    const productOnCart = newCart[productIndexOnCart]
+    const currentProduct = {...productOnCart, qtd: productOnCart.qtd - 1}
+    newCart[productIndexOnCart] = currentProduct
   }
-
-  return currentList
+  return newCart
 }
 
 export function deleteItemArray(arrList, product){
   const currentList = [...arrList]
   return currentList.filter((element) => element.id !== product.id)
+}
+
+export function organizingArray(arr){
+  return arr.sort((a,b)=>{
+    if (a.createdAt > b.createdAt) {
+      return -1;
+    }
+    if (a.createdAt < b.createdAt) {
+      return 1;
+    }
+    return 0;
+  })
 }
