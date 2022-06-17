@@ -7,6 +7,7 @@ import { createOrderAPI } from '../../api/createOrder'
 import { deleteItemArray, removeProductFromCart, addProductToCart, sumTotalPrice } from '../../components/functions/manipulatingArray'
 import HandlingResponseAPI from '../handlingResponseAPI'
 import closeAndOpen from '../../components/functions/closeAndOpen'
+
 export default function Cart({arrList, setArrList}) {
   const [name, setName] = useState('')
   const [total, setTotal] = useState(0)
