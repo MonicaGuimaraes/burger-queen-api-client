@@ -2,13 +2,19 @@ import styles from './order.module.css'
 import ContainerOrder from '../../components/containerOrder'
 import logo from '../../assets/Logo.svg'
 import ButtonHome from '../../components/buttonHome'
-import { callOrdersAPI } from '../../API/CallOrdersAPI'
+import { callOrdersAPI } from '../../api/callOrdersAPI'
 import { useEffect, useState } from 'react'
 import {organizingArray} from '../../components/functions/manipulatingArray'
 import { getPersistedUser } from '../../components/localStorage'
 
 export default function Order() {
-  const userRole = getPersistedUser().role
+
+  const user = getPersistedUser()
+  console.log(user)
+  console.log(user.role)
+  
+  const userRole = user.role
+  
   const [listPendingCommand, setListPendingCommand] = useState([])
   const [listInPeparationCommand, setListInPreparationCommand ] = useState([])
   const [listReadyOrderCommand, setListReadyOrderCommand ] = useState([])
@@ -19,7 +25,6 @@ export default function Order() {
 
     setInterval(() => {
       callOrdersAPI().then((response) => {
-        console.log(response)
         setOrders(response)
       })
     }, 50000 );
@@ -38,6 +43,7 @@ export default function Order() {
       <div className={styles.divContainersOrder}>
         <ContainerOrder 
           ordersWithStatus={organizingArray(listPendingCommand)}
+          disabled={user.role !== 'cozinha'}
           orders={orders} 
           status={'inPreparation'} 
           nameButton={'Pendente'} 
@@ -47,6 +53,7 @@ export default function Order() {
         </ContainerOrder>
         <ContainerOrder 
           ordersWithStatus={organizingArray(listInPeparationCommand)} 
+          disabled={user.role !== 'cozinha'}
           orders={orders} 
           status={'ready'}
           nameButton={'Em preparo'} 
@@ -57,6 +64,7 @@ export default function Order() {
         { userRole === 'atendimento' ?
           <ContainerOrder 
             ordersWithStatus={organizingArray(listReadyOrderCommand)}
+            disabled={user.role === 'cozinha'}
             orders={orders}
             status={'delivered'} 
             nameButton={'Pronto'} 

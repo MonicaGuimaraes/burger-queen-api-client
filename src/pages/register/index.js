@@ -1,7 +1,7 @@
 import Inputs from '../../components/inputs'
 import ButtonSubmit from '../../components/buttons'
 import { useState } from 'react'
-import { registerAPI } from '../../API/RegisterAPI'
+import { registerAPI } from '../../api/registerAPI'
 import HandlingResponseAPI from '../../components/handlingResponseAPI'
 import styles from './register.module.css';
 import logo from '../../assets/Logo.svg'

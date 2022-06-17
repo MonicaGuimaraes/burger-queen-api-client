@@ -3,10 +3,10 @@ import Inputs from '../inputs'
 import { useState, useRef, useEffect } from 'react'
 import styles from './Cart.module.css'
 import ProductsCart from '../productsCart'
-import { CreateOrderAPI } from '../../API/CreateOrder'
+import { createOrderAPI } from '../../api/createOrder'
 import { deleteItemArray, removeProductFromCart, addProductToCart, sumTotalPrice } from '../../components/functions/manipulatingArray'
 import HandlingResponseAPI from '../handlingResponseAPI'
-
+import closeAndOpen from '../../components/functions/closeAndOpen'
 export default function Cart({arrList, setArrList}) {
   const [name, setName] = useState('')
   const [total, setTotal] = useState(0)
@@ -18,10 +18,6 @@ export default function Cart({arrList, setArrList}) {
   useEffect(()=>{ 
     setTotal(sumTotalPrice(arrList))
   }, [total, arrList])
-
-  function closeAndOpenCart(){
-    classOpenCart.current.classList.toggle(styles.sectionOpen)
-  }
 
   function sendOrder(e){
     e.preventDefault()
@@ -36,9 +32,8 @@ export default function Cart({arrList, setArrList}) {
       arrProducts: list,
     }
   
-    CreateOrderAPI(obj)
+    createOrderAPI(obj)
     .then((response) => {
-      console.log(response)
       const hasError = response.code
       let message = ''
       let show = false
@@ -79,7 +74,7 @@ export default function Cart({arrList, setArrList}) {
     {showElement ? <HandlingResponseAPI message={responseAPI}/> : null}
       <button 
       className={styles.buttonOpenAndClosed} 
-      onClick={closeAndOpenCart}>
+      onClick={()=> closeAndOpen(classOpenCart, styles.sectionOpen)}>
         <img 
         className={styles.ImgOpenAndClosed} 
         src={Vector} 

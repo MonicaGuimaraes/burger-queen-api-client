@@ -4,12 +4,9 @@ import  Login from './index.js';
 import {render, screen, waitFor} from '@testing-library/react'
 import user from '@testing-library/user-event';
 import { loginAPI } from '../../API/LoginAPI' 
-// import HandlingErrors from '../../components/handlingErrors'
 
 jest.mock('react-router-dom')
 jest.mock('../../API/LoginAPI')
-
-
 
 describe("LoginPage", () => {
   beforeEach(() => {
@@ -41,7 +38,7 @@ describe("LoginPage", () => {
     render(<Login />)
     const email = 'samplemail.com';
     const password = 'sample';
-    const inputEmail = screen.getByPlaceholderText(/Email/i)
+    const inputEmail = screen.getByPlaceholderText('seuemail@email.com')
     user.type(inputEmail, email)
     const inputPassword = screen.getByPlaceholderText(/Senha/i)
     user.type(inputPassword, password)
@@ -50,29 +47,29 @@ describe("LoginPage", () => {
     expect(loginAPI).toHaveBeenCalledTimes(0)
   })
 
-  // test('Deverá chamar o componente HandlingErrors quando a API trouxer um obj com uma key code', async () =>{
+  test('Deverá chamar o componente HandlingErrors quando a API trouxer um obj com uma key code', async () =>{
     
-  //   loginAPI.mockResolvedValueOnce({
-  //     code : '4',
-  //     message: 'email/senha inválido'
-  //   })
-  //   render(<Login />)
-  //   const email = 'sample@mail.com';
-  //   const password = 'samplexxxx';
-  //   const inputEmail = screen.getByPlaceholderText(/Email/i)
-  //   user.type(inputEmail, email)
-  //   const inputPassword = screen.getByPlaceholderText(/Senha/i)
-  //   user.type(inputPassword, password)
-  //   const button = screen.getByRole('button')
-  //   user.click(button)
+    loginAPI.mockResolvedValueOnce({
+      code : '4',
+      message: 'email/senha inválido'
+    })
+    render(<Login />)
+    const email = 'sample@mail.com';
+    const password = 'samplexxxx';
+    const inputEmail = screen.getByPlaceholderText(/Email/i)
+    user.type(inputEmail, email)
+    const inputPassword = screen.getByPlaceholderText(/Senha/i)
+    user.type(inputPassword, password)
+    const button = screen.getByRole('button')
+    user.click(button)
     
-    
-  //   // expect().toBeInTheDocument()
-  //   await waitFor(() => {
-  //     expect(loginAPI).toHaveBeenCalledWith(email, password) 
-  //   });
-  //   expect(loginAPI).toHaveBeenCalledTimes(1)
-  //   expect(screen.getByText('E-mail ou senha inválido')).toBeInTheDocument()
-  // })
+    await waitFor(() => {
+      expect(loginAPI).toHaveBeenCalledWith(email, password) 
+    });
+    expect(loginAPI).toHaveBeenCalledTimes(1)
+    await waitFor(() => {
+      expect(screen.getByText('E-mail ou senha inválido')).toBeInTheDocument()
+    });
+  })
 })
 

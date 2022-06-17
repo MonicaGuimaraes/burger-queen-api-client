@@ -1,4 +1,4 @@
-import { menuAPI } from '../../API/MenuAPI'
+import { menuAPI } from '../../api/menuAPI'
 import { useState, useEffect } from 'react'
 import { getPersistedUser } from '../../components/localStorage'
 import  Cart from '../../components/cart'
@@ -21,15 +21,12 @@ export default function Menu(){
   }, [])
 
   function filterMenu(menu) {
-    console.log(menu)
     const typeMenu = {
       'all-day' :  () => {
         setFilterArr((list.filter((products) => products.type === 'all-day' ? true : false)))
-        console.log(filterArr)
         return filterArr},
       'breakfast' : () => {
         setFilterArr(list.filter((products) => products.type === 'breakfast' ? true : false))
-        console.log(filterArr)
         return filterArr},
       'list' : () =>{
         setFilterArr([])

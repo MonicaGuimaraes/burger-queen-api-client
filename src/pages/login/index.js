@@ -1,6 +1,6 @@
 import Inputs from '../../components/inputs'
 import ButtonSubmit from '../../components/buttons'
-import { loginAPI } from '../../API/LoginAPI'
+import { loginAPI } from '../../api/loginAPI'
 import { useState } from "react"
 import HandlingResponseAPI from '../../components/handlingResponseAPI'
 import styles from './login.module.css'
@@ -60,7 +60,7 @@ export default function Login(){
         <h1>Login</h1>
         <Inputs 
           type='email' 
-          placeholder='Email' 
+          placeholder='seuemail@email.com' 
           autoComplete='username' 
           required 
           value={email} 

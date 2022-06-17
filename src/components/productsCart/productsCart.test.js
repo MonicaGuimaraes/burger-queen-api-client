@@ -2,7 +2,6 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import  ProductsCart from './index.jsx';
 import {render, screen} from '@testing-library/react';
-import user from '@testing-library/user-event';
 
 const obj = {
   complement: "ovo",

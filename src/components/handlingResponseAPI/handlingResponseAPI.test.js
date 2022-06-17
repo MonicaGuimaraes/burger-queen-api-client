@@ -34,4 +34,24 @@ describe('<HandlingResponseAPI />', () => {
     expect(screen.getByText('Dados insuficientes')).toBeInTheDocument();
   });
 
+  test('O componente deve retornar (successRegister)', () => {
+    render(<HandlingResponseAPI message='successRegister' />);
+    expect(screen.getByText('Você foi registrado com sucesso.')).toBeInTheDocument();
+  });
+
+  test('O componente deve retornar (successOrder)', () => {
+    render(<HandlingResponseAPI message='successOrder' />);
+    expect(screen.getByText('Sua comanda foi enviada para cozinha.')).toBeInTheDocument();
+  });
+
+  test('O componente deve retornar (successStatus)', () => {
+    render(<HandlingResponseAPI message='successStatus' />);
+    expect(screen.getByText('O estado do pedido foi alterado.')).toBeInTheDocument();
+  });
+
+  test('O componente deve retornar (Tente mais tarde! Estamos com alguns problemas!)', () => {
+    render(<HandlingResponseAPI message='error' />);
+    expect(screen.getByText('Tente mais tarde! Estamos com alguns problemas!')).toBeInTheDocument();
+  });
+
 })
