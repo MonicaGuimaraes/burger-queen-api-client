@@ -3,10 +3,10 @@ import '@testing-library/jest-dom';
 import  Login from './index.js';
 import {render, screen, waitFor} from '@testing-library/react'
 import user from '@testing-library/user-event';
-import { loginAPI } from '../../API/LoginAPI' 
+import { loginAPI } from '../../api/LoginAPI' 
 
 jest.mock('react-router-dom')
-jest.mock('../../API/LoginAPI')
+jest.mock('../../api/LoginAPI')
 
 describe("LoginPage", () => {
   beforeEach(() => {

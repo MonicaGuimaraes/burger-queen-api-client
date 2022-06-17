@@ -1,7 +1,7 @@
 import styles from './containerOrder.module.css'
 import Command from '../command'
-import { changeStatusAPI } from '../../API/changeStatusAPI'
-import { callOrdersAPI } from '../../API/CallOrdersAPI'
+import { changeStatusAPI } from '../../api/changeStatusAPI'
+import { callOrdersAPI } from '../../api/CallOrdersAPI'
 import { useState } from 'react'
 import HandlingResponseAPI from '../handlingResponseAPI'
 export default function ContainerOrder({children, nameButton, onclick, classNameButton, ordersWithStatus, status, orders, setOrders, disabled}) {

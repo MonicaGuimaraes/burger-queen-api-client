@@ -3,10 +3,10 @@ import '@testing-library/jest-dom';
 import Cart from './index.jsx';
 import { render, screen, waitFor } from '@testing-library/react'
 import user from '@testing-library/user-event';
-import { createOrderAPI } from '../../API/createOrder';
+import { createOrderAPI } from '../../api/createOrder';
 
 jest.mock('react-router-dom')
-jest.mock('../../API/createOrder')
+jest.mock('../../api/createOrder')
 
 const productsCart = [
   {

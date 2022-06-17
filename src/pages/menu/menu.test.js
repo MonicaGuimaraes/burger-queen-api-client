@@ -12,7 +12,7 @@ import { createOrderAPI } from '../../api/createOrder.js'
 
 
 jest.mock('../../api/createOrder.js')
-jest.mock('../../API/MenuAPI.js')
+jest.mock('../../api/MenuAPI.js')
 jest.mock('react-router-dom')
 
 const arrList = [{
