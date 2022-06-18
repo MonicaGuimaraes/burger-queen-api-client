@@ -1,4 +1,4 @@
-import { menuAPI } from '../../api/menuAPI'
+import { menuAPI } from '../../API/MenuAPI'
 import { useState, useEffect } from 'react'
 import { getPersistedUser } from '../../components/localStorage'
 import  Cart from '../../components/cart'

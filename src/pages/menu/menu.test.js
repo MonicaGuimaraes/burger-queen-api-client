@@ -7,12 +7,12 @@ import {
   waitFor
 } from '@testing-library/react'
 import user from '@testing-library/user-event';
-import { menuAPI } from '../../api/menuAPI.js'
-import { createOrderAPI } from '../../api/createOrder.js'
+import { menuAPI } from '../../API/MenuAPI.js'
+import { createOrderAPI } from '../../API/CreateOrder.js'
 
 
-jest.mock('../../api/createOrder.js')
-jest.mock('../../api/MenuAPI.js')
+jest.mock('../../API/CreateOrder.js')
+jest.mock('../../API/MenuAPI.js')
 jest.mock('react-router-dom')
 
 const arrList = [{

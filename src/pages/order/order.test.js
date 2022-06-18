@@ -7,12 +7,12 @@ import {
   waitFor
 } from '@testing-library/react'
 import user from '@testing-library/user-event';
-import { callOrdersAPI } from '../../api/callOrdersAPI.js'
-import { changeStatusAPI } from '../../api/changeStatusAPI.js'
+import { callOrdersAPI } from '../../API/CallOrdersAPI.js'
+import { changeStatusAPI } from '../../API/ChangeStatusAPI.js'
 import { getPersistedUser } from '../../components/localStorage/index'
 
-jest.mock('../../api/callOrdersAPI.js')
-jest.mock('../../api/ChangeStatusAPI.js')
+jest.mock('../../API/CallOrdersAPI.js')
+jest.mock('../../API/ChangeStatusAPI.js')
 jest.mock('react-router-dom')
 jest.mock('../../components/localStorage/index')
 

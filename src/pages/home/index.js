@@ -24,7 +24,7 @@ export default function Home(){
       <nav>
         {!isUserAChef? 
         <> 
-          <ButtonNav disable={isUserAChef} onClick={() => navigateTo('/menu') }>{'Cardápio e Carrinho'}</ButtonNav>
+          <ButtonNav disable={isUserAChef} onClick={() => navigateTo('/Menu') }>{'Cardápio e Carrinho'}</ButtonNav>
           <ButtonNav disable={isUserAChef} onClick={() => navigateTo('/order')}>{'Serviço'}</ButtonNav>
           <ButtonNav disable={isUserAChef} onClick={() => navigateTo('/finalized')}>{'Entregue'}</ButtonNav>    
         </> : <ButtonNav onClick={() => navigateTo('/order') }>{'Pedidos'}</ButtonNav>  }

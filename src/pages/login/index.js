@@ -1,6 +1,6 @@
 import Inputs from '../../components/inputs'
 import ButtonSubmit from '../../components/buttons'
-import { loginAPI } from '../../api/loginAPI'
+import { loginAPI } from '../../API/LoginAPI'
 import { useState } from "react"
 import HandlingResponseAPI from '../../components/handlingResponseAPI'
 import styles from './login.module.css'

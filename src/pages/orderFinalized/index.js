@@ -1,5 +1,5 @@
 import styles from './orderFinalized.module.css'
-import {callOrdersAPI} from '../../api/callOrdersAPI.js'
+import {callOrdersAPI} from '../../API/CallOrdersAPI.js'
 import ContainerOrder from '../../components/containerOrder'
 import logo from '../../assets/Logo.svg'
 import ButtonHome from '../../components/buttonHome'

@@ -3,10 +3,10 @@ import '@testing-library/jest-dom';
 import  Register from './index.js';
 import {render, screen, waitFor} from '@testing-library/react';
 import user from '@testing-library/user-event';
-import { registerAPI } from '../../api/registerAPI';
+import { registerAPI } from '../../API/RegisterAPI';
 
 jest.mock('react-router-dom')
-jest.mock('../../api/RegisterAPI');
+jest.mock('../../API/RegisterAPI');
 
  describe("RegisterPage", () => {
 
