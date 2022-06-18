@@ -7,11 +7,11 @@ import {
   waitFor
 } from '@testing-library/react'
 import user from '@testing-library/user-event';
-import { callOrdersAPI } from '../../api/CallOrdersAPI.js'
-import { changeStatusAPI } from '../../api/changeStatusAPI.js' 
+import { callOrdersAPI } from '../../api/callOrdersAPI.js'
+import { changeStatusAPI } from '../../api/changeStatusAPI.js'
 import { getPersistedUser } from '../../components/localStorage/index'
 
-jest.mock('../../api/CallOrdersAPI.js')
+jest.mock('../../api/callOrdersAPI.js')
 jest.mock('../../api/ChangeStatusAPI.js')
 jest.mock('react-router-dom')
 jest.mock('../../components/localStorage/index')
@@ -45,7 +45,7 @@ const arrOrders = [{
   createdAt: "2022-06-02T14:19:12.226Z",
   id: 5416,
   processedAt: "2022-06-09T01:25:05.587Z",
-  status: "delivered",
+  status: "inPreparation",
   table: 1,
   updatedAt: "2022-06-12T16:20:43.678Z",
   user_id: 4070
@@ -69,39 +69,64 @@ const arrOrders = [{
 }
 ]
 
-// describe('Order', () => {
-//   test.only('Interação com a pagina Order', async () => {
-//     getPersistedUser.mockResolvedValueOnce({
-//       role: 'atendimento'
-//     })
-//     callOrdersAPI.mockResolvedValue(arrOrders)
-//     changeStatusAPI.mockResolvedValueOnce({})
-//     render(<Order />)
-    
-    
+describe('Order', () => {
+  test('Interação com a pagina Order sendo da cozinha', async () => {
+    getPersistedUser.mockResolvedValue({
+      role: 'cozinha'
+    })
+    callOrdersAPI.mockResolvedValue(arrOrders)
+    changeStatusAPI.mockResolvedValueOnce({})
+    render(<Order />)
 
-//     expect(callOrdersAPI).toHaveBeenCalled()
+    await waitFor(() => {
+      expect(callOrdersAPI).toHaveBeenCalled()
+    })
 
-//     await waitFor(() => {
-//       const arrButton = screen.getAllByRole('button')
-//       console.log(arrButton)
-//       expect(arrButton).toHaveLength(6)
-//     })
+    await waitFor(() => {
+      const arrButton = screen.getAllByRole('button')
+      expect(arrButton).toHaveLength(3)
+    })
 
-//     const button = screen.getByText('Pendente')
-//     console.log(button)
-//     user.click(button)
-    
-//     await waitFor(() => {
-//       expect(changeStatusAPI).toHaveBeenCalledWith('inPreparation', arrOrders[2].id.toString())
-//     })
+  //   const button = screen.getByText('Pendente')
+  //   user.click(button)
 
-//     // await waitFor(() => {
-//     //   expect(callOrdersAPI).toHaveBeenCalledTimes(2)
-//     // })
-//   })
+  //   await waitFor(() => {
+  //     expect(changeStatusAPI).toHaveBeenCalledWith('inPreparation', arrOrders[2].id.toString())
+  //   })
 
-// })
+  //   await waitFor(() => {
+  //     expect(callOrdersAPI).toHaveBeenCalledTimes(2)
+  //   })
+  })
+  
+  test('Interação com a pagina Order sendo do atendimento', async () => {
+    getPersistedUser.mockResolvedValue({
+      role: 'atendimento'
+    })
+    callOrdersAPI.mockResolvedValue(arrOrders)
+    changeStatusAPI.mockResolvedValueOnce({})
+    render(<Order />)
 
-// test('', () => {
-// })
+    await waitFor(() => {
+      expect(callOrdersAPI).toHaveBeenCalled()
+    })
+
+    await waitFor(() => {
+      const arrButton = screen.getAllByRole('button')
+      expect(arrButton).toHaveLength(3)
+    })
+
+  //   const button = screen.getByText('Pendente')
+  //   user.click(button)
+
+  //   await waitFor(() => {
+  //     expect(changeStatusAPI).toHaveBeenCalledTimes(0)
+  //   })
+
+  //   await waitFor(() => {
+  //     expect(callOrdersAPI).toHaveBeenCalledTimes(2)
+  //   })
+  })
+
+
+})

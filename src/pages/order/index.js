@@ -2,33 +2,35 @@ import styles from './order.module.css'
 import ContainerOrder from '../../components/containerOrder'
 import logo from '../../assets/Logo.svg'
 import ButtonHome from '../../components/buttonHome'
-import { callOrdersAPI } from '../../api/CallOrdersAPI'
+import { callOrdersAPI } from '../../api/callOrdersAPI'
 import { useEffect, useState } from 'react'
 import {organizingArray} from '../../components/functions/manipulatingArray'
 import { getPersistedUser } from '../../components/localStorage'
 
 export default function Order() {
-
-  const user = getPersistedUser()
-  console.log(user)
-  console.log(user.role)
-  
-  const userRole = user.role
   
   const [listPendingCommand, setListPendingCommand] = useState([])
   const [listInPeparationCommand, setListInPreparationCommand ] = useState([])
   const [listReadyOrderCommand, setListReadyOrderCommand ] = useState([])
   const [orders, setOrders] = useState([])
+  const [role, setRole] = useState('')
   
   useEffect(()=>{
-    callOrdersAPI().then((response) => setOrders(response))
+    const user = getPersistedUser()
+    setRole(user.role)
+  },[])
 
+  useEffect(()=>{
+    callOrdersAPI().then((response) => setOrders(response))
+  
     setInterval(() => {
       callOrdersAPI().then((response) => {
         setOrders(response)
       })
     }, 50000 );
   }, [])
+
+  
 
   useEffect(()=>{
     setListPendingCommand(orders.filter((product) => product.status === 'pending'))
@@ -43,7 +45,7 @@ export default function Order() {
       <div className={styles.divContainersOrder}>
         <ContainerOrder 
           ordersWithStatus={organizingArray(listPendingCommand)}
-          disabled={user.role !== 'cozinha'}
+          disabled={role !== 'cozinha'}
           orders={orders} 
           status={'inPreparation'} 
           nameButton={'Pendente'} 
@@ -53,7 +55,7 @@ export default function Order() {
         </ContainerOrder>
         <ContainerOrder 
           ordersWithStatus={organizingArray(listInPeparationCommand)} 
-          disabled={user.role !== 'cozinha'}
+          disabled={role !== 'cozinha'}
           orders={orders} 
           status={'ready'}
           nameButton={'Em preparo'} 
@@ -61,10 +63,10 @@ export default function Order() {
           setOrders={setOrders}>
           Pedidos em preparo
         </ContainerOrder>
-        { userRole === 'atendimento' ?
+        { role === 'atendimento' ?
           <ContainerOrder 
             ordersWithStatus={organizingArray(listReadyOrderCommand)}
-            disabled={user.role === 'cozinha'}
+            disabled={role === 'cozinha'}
             orders={orders}
             status={'delivered'} 
             nameButton={'Pronto'} 
