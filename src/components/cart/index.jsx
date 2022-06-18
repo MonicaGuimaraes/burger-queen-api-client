@@ -65,6 +65,12 @@ export default function Cart({arrList, setArrList}) {
       setName(resetName)
       setTable(resetTable)
       setTotal(resetTotal)
+    }).catch(()=> {
+      setResponseAPI('')
+      setShowElement(true)
+      setTimeout(() => {
+        setShowElement(false)
+      }, 10000)
     })
   }
 

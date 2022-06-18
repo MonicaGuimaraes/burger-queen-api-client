@@ -60,16 +60,19 @@ describe('Cart', () => {
     expect(screen.getByText('Total:45.00')).toBeInTheDocument()
   })
 
-  test('Deve chamar CreateOrderAPI com o objeto order', async () => {
+  test('Deve chamar CreateOrderAPI com o objeto order, dando mensagem de sucesso', async () => {
     createOrderAPI.mockResolvedValueOnce({})
     render(<Cart arrList={productsCart} setArrList={jest.fn} />)
     const inputClient = screen.getByLabelText('Nome do Cliente')
     user.type(inputClient, 'test')
     const buttonOrder = screen.getByText('Pronto')
     user.click(buttonOrder)
-    await waitFor(() =>
-      expect(createOrderAPI).toHaveBeenCalledWith(order)
-    )
+
+    await waitFor(() =>{
+      const message = screen.getByText('Sua comanda foi enviada para cozinha.')
+      expect(message).toBeInTheDocument()
+    })
+    expect(createOrderAPI).toHaveBeenCalledWith(order)
     expect(createOrderAPI).toHaveBeenCalledTimes(1)
   })
 

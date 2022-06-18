@@ -169,7 +169,7 @@ describe('<Menu />', () => {
     })
 
     await waitFor(() => {
-      expect(screen.getByText('Tente mais tarde! Estamos com alguns problemas!')).toBeInTheDocument()
+      expect(screen.getByText('Tente mais tarde! Estamos com alguns problemas! Também verifique sua conexão.')).toBeInTheDocument()
     })
   })
 })

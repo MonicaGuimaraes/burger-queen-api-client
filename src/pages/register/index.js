@@ -59,6 +59,12 @@ export default function Register(){
         setNavigate(navigateLogin)
       }, time)
 
+    }).catch(()=> {
+      setResponseAPI('')
+      setShowElement(true)
+      setTimeout(() => {
+        setShowElement(false)
+      }, 10000)
     })
   }
   
@@ -72,7 +78,7 @@ export default function Register(){
         <Inputs type='email' placeholder='Email' autoComplete='off' required value={email} onChange={(e) => setEmail(e.target.value)} />
         <Inputs type='password' placeholder='Senha' autoComplete='current-password' required value={password} onChange={(e) => setPassword(e.target.value)} />
         <label>Selecione um cargo:
-          <select className={styles.select} defaultValue='cargo' placeholder='Cargo' onChange={(e) => setRole(e.target.value)}>
+          <select className={styles.select} data-testid={'select'} defaultValue='cargo' placeholder='Cargo' onChange={(e) => setRole(e.target.value)}>
             <option value='cargo' disabled hidden>Cargo</option>
             <option value='atendimento'>Atendimento</option>
             <option value='cozinha'>Cozinha</option>

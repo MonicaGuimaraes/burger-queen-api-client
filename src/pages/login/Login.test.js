@@ -11,7 +11,6 @@ jest.mock('../../API/LoginAPI')
 describe("LoginPage", () => {
   beforeEach(() => {
     loginAPI.mockClear()
-    // jest.clearAllMocks()
   })
 
   test('Deverá autenticar um usuário com sucesso', async () =>{
@@ -70,6 +69,28 @@ describe("LoginPage", () => {
     await waitFor(() => {
       expect(screen.getByText('E-mail ou senha inválido')).toBeInTheDocument()
     });
+  })
+
+  test('Deverá mandar uma mensagem de erro caso a API retorne rejeitado', async () =>{
+    loginAPI.mockRejectedValueOnce({code : '',})
+    render(<Login />)
+
+    const email = 'sample@mail.com';
+    const password = 'sample';
+    const inputEmail = screen.getByPlaceholderText(/Email/i)
+    user.type(inputEmail, email)
+    const inputPassword = screen.getByPlaceholderText(/Senha/i)
+    user.type(inputPassword, password)
+    const button = screen.getByRole('button')
+    user.click(button)
+
+    await waitFor(() =>{
+      const message = screen.getByText("Tente mais tarde! Estamos com alguns problemas! Também verifique sua conexão.")
+      expect(message).toBeInTheDocument()
+    });
+    
+    expect(loginAPI).toHaveBeenCalledWith(email, password)
+    expect(loginAPI).toHaveBeenCalledTimes(1)
   })
 })
 

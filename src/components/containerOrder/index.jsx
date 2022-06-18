@@ -4,7 +4,8 @@ import { changeStatusAPI } from '../../API/ChangeStatusAPI'
 import { callOrdersAPI } from '../../API/CallOrdersAPI'
 import { useState } from 'react'
 import HandlingResponseAPI from '../handlingResponseAPI'
-export default function ContainerOrder({children, nameButton, onclick, classNameButton, ordersWithStatus, status, orders, setOrders, disabled}) {
+
+export default function ContainerOrder({children, nameButton, classNameButton, ordersWithStatus, status,  setOrders, disabled}) {
   
   const [showElement, setShowElement] = useState(false)
   const [responseAPI, setResponseAPI] = useState('')
@@ -28,6 +29,12 @@ export default function ContainerOrder({children, nameButton, onclick, className
       callOrdersAPI().then((updatedOrders) => {
         setOrders(updatedOrders)
       })
+    }).catch(()=> {
+      setResponseAPI('')
+      setShowElement(true)
+      setTimeout(() => {
+        setShowElement(false)
+      }, 10000)
     })
   }
 
