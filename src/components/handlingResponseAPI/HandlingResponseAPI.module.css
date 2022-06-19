@@ -2,12 +2,13 @@
 .sectionMessageError{ 
   padding: 5px;
   border-radius: 5px;
-  position: absolute;
+  position: fixed;
   top: 15rem;
   right: 10%;
   text-align: center;
   width: 80%;
   background: var(--warning-message);
+  box-shadow: 0 0 1em var(--gradient-color1);
 }
 
 .styles.errorText{

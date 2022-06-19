@@ -72,12 +72,11 @@ export default function Register(){
         <Inputs type='email' placeholder='Email' autoComplete='off' required value={email} onChange={(e) => setEmail(e.target.value)} />
         <Inputs type='password' placeholder='Senha' autoComplete='current-password' required value={password} onChange={(e) => setPassword(e.target.value)} />
         <label>Selecione um cargo:
-          <select className={styles.select} data-testid='select' required onChange={(e) => {setRole(e.target.value)}}>
-            <optgroup label="Cargo">
-              <option value='atendimento'>Atendimento</option>
-              <option value='cozinha'>Cozinha</option>
-            </optgroup>
-          </select>  
+          <select className={styles.select} defaultValue='cargo' placeholder='Cargo' onChange={(e) => setRole(e.target.value)}>
+            <option value='cargo' disabled hidden>Cargo</option>
+            <option value='atendimento'>Atendimento</option>
+            <option value='cozinha'>Cozinha</option>
+          </select>
         </label>
         <ButtonSubmit disabled={!REGEX_EMAIL.test(email) || password.length < minPwdLength || name.length < minNameLength || role == null } >{'Cadastrar'}</ButtonSubmit>
         <p className={styles.register}>Tem uma conta? <Link className={styles.link} to="/">Vá para o Login</Link></p>

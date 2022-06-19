@@ -1,5 +1,5 @@
 import { getPersistedUser } from '../components/localStorage/index.jsx'
-export function CreateOrderAPI(obj){
+export function createOrderAPI(obj){
   const header = new Headers()
   header.append('Authorization', getPersistedUser().token)
   header.append('Accept', 'application/json')

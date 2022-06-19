@@ -11,15 +11,14 @@ import {
   Route,
 } from "react-router-dom";
 
-
 function App() {
-  
+
   return (
     <Router>
       <Routes>
         <Route path='/home' element={<PrivateRoute> <Home /> </PrivateRoute>} />
         <Route path='/' element={<Login />} />
-        <Route path='/menu' element={<PrivateRouteWithRole> <Menu /> </PrivateRouteWithRole>} />
+        <Route path='/Menu' element={<PrivateRouteWithRole> <Menu /> </PrivateRouteWithRole>} />
         <Route path='/order' element={<PrivateRoute> <Order /> </PrivateRoute>} />
         <Route path='/finalized' element={<PrivateRoute> <OrderFinalized /> </PrivateRoute>} />
         <Route path='/register' element={<Register />} />

@@ -8,7 +8,8 @@ export default function HandlingResponseAPI({message}) {
     'Email já cadastrado': 'E-mail já cadastrado',
     'Dados insuficientes': 'Dados insuficientes',
     'successRegister': 'Você foi registrado com sucesso.',
-    'successOrder': 'Sua comanda foi enviada para cozinha.'
+    'successOrder': 'Sua comanda foi enviada para cozinha.',
+    'successStatus': 'O estado do pedido foi alterado.'
   }
   
   if(!text[message]){

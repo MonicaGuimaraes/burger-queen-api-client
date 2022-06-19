@@ -60,7 +60,7 @@ export default function Login(){
         <h1>Login</h1>
         <Inputs 
           type='email' 
-          placeholder='Email' 
+          placeholder='seuemail@email.com' 
           autoComplete='username' 
           required 
           value={email} 
