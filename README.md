@@ -93,6 +93,7 @@ Todos as histórias de usuárias tem como definição de pronto o acordado abaix
 
 ---
 ## 5. Definição do produto e design
+
 ### Proto Personas
 
 <div align="center">
@@ -110,11 +111,24 @@ Todos as histórias de usuárias tem como definição de pronto o acordado abaix
 
 ### Protótipo de Alta fidelidade
 
+O Protótipo foi criado pelo [FIGMA](https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F4at2Me9ArF59c95ezHIaqH%2FBurguerQueen%3Fnode-id%3D41%253A162)
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="400" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F4at2Me9ArF59c95ezHIaqH%2FBurguerQueen%3Fnode-id%3D41%253A162" allowfullscreen></iframe>
+<div align="center">
+  <img src='https://cdn.discordapp.com/attachments/975577499729805343/988171659372556308/Picsart_22-06-19_17-00-38-992.gif' align="center" alt="prototipos"  width="400px"> 
+</div>
 
 ### Testes 
-Todos os componentes criados possuem testes proprios e tambem suas respectivas funções.
+Todos os componentes criados possuem testes próprios e também suas respectivas funções. Os testes cobrem a maioria das funcionalidades do projeto:
+
+<div align="center">
+  <img src='https://cdn.discordapp.com/attachments/975577499729805343/988173595060621373/unknown.png' align="center" alt="prototipos"  width="400px"> 
+</div>
+
+### Testes de Usabilidade
+
+Os testes de usabilidade estão disponíveis para leitura, [clicando aqui](https://docs.google.com/document/d/1Vyx8WtS3_RfljnOvgE8bHnBTNSVN1WOOsc2PZZyClIM/edit?usp=sharing).
+
+Após cada teste de usabilidade foram geradas tarefas que se tornarão em futuras issues para o projeto.
 
 ---
 ## 6. Lighthouse
@@ -142,7 +156,7 @@ Pontuações de Performance, Progressive Web App, Accessibility e Best Practices
   <tr>
     <td align="center">
       <a href="https://github.com/MonicaGuimaraes">
-  <img align="center" alt="Monica"  width="100px;" style="border-radius:50px;" src="https://cdn.discordapp.com/attachments/948752264212922418/988098282251223121/97262052_1_1.png"> <br>       
+  <img align="center" alt="Monica"  width="100px;" style="border-radius:50px;" src="https://avatars.githubusercontent.com/u/97262052?v=4"> <br>       
   <sub>
           <b>Mônica Guimaraes</b>
         </sub>
