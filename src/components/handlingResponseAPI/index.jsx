@@ -13,7 +13,7 @@ export default function HandlingResponseAPI({message}) {
   }
   
   if(!text[message]){
-    text[message] = "Tente mais tarde! Estamos com alguns problemas!"
+    text[message] = "Tente mais tarde! Estamos com alguns problemas! Também verifique sua conexão."
   }
 
   return ( 

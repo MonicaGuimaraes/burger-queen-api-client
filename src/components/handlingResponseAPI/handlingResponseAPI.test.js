@@ -51,7 +51,7 @@ describe('<HandlingResponseAPI />', () => {
 
   test('O componente deve retornar (Tente mais tarde! Estamos com alguns problemas!)', () => {
     render(<HandlingResponseAPI message='error' />);
-    expect(screen.getByText('Tente mais tarde! Estamos com alguns problemas!')).toBeInTheDocument();
+    expect(screen.getByText('Tente mais tarde! Estamos com alguns problemas! Também verifique sua conexão.')).toBeInTheDocument();
   });
 
 })

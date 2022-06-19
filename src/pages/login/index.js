@@ -48,6 +48,12 @@ export default function Login(){
 
       setUserLocalStorage(user)
       setNavigate(navigateHome)
+    }).catch(()=> {
+      setResponseAPI('')
+      setShowElement(true)
+      setTimeout(() => {
+        setShowElement(false)
+      }, 10000)
     })
   }
     
