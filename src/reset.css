@@ -13,7 +13,10 @@
 body {
   background: var(--background-app);
 }
-
+button:disabled{
+ background: #E1E1D1;
+ cursor:no-drop; 
+}
 ::-webkit-scrollbar {
   width: 15px;
   border-radius: 10px;

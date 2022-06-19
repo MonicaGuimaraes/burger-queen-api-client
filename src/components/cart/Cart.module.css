@@ -48,7 +48,7 @@
 }
 
 .ulProducts {
-  margin-top: 7%;
+  margin-top: 40px;
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -100,6 +100,25 @@
   border-color: black;
   border: solid 2px;
   background-color: var(---color4)
+}
+
+.qtdProducts {
+  position: absolute;
+  color: var(--warning-message);
+  padding: 5px;
+  background-color: var(--color2);
+  border-radius: 5px;
+  right: 10px;
+  font-weight: bolder;
+  font-size:15px;
+  top: 5px;
+}
+
+.DivbuttonOpenAndClosed{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (max-width: 491px) {

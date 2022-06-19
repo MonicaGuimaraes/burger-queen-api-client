@@ -73,14 +73,17 @@ export default function Cart({arrList, setArrList}) {
     <section ref={classOpenCart} 
     className={styles.sectionClosed}> 
     {showElement ? <HandlingResponseAPI message={responseAPI}/> : null}
-      <button 
-      className={styles.buttonOpenAndClosed} 
-      onClick={()=> closeAndOpen(classOpenCart, styles.sectionOpen)}>
-        <img 
-        className={styles.ImgOpenAndClosed} 
-        src={Vector} 
-        alt="CloseAndOpenCart" />
-      </button>
+      <div className={styles.DivbuttonOpenAndClosed}>
+        <button 
+        className={styles.buttonOpenAndClosed} 
+        onClick={()=> closeAndOpen(classOpenCart, styles.sectionOpen)}>
+          <img 
+          className={styles.ImgOpenAndClosed} 
+          src={Vector} 
+          alt="CloseAndOpenCart" />
+        </button>
+        <p className={styles.qtdProducts}>Adicionados:  {arrList.length}</p>
+      </div>
       <div className={styles.divCart}>
         <ul className={styles.ulProducts}>
           { arrList.length !== 0 ? arrList.map((product, index) => {
