@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import styles from './Cart.module.css'
 import ProductsCart from '../productsCart'
 import { createOrderAPI } from '../../API/CreateOrder'
-import { deleteItemArray, removeProductFromCart, addProductToCart, sumTotalPrice } from '../../components/functions/manipulatingArray'
+import { deleteItemFromCart, removeProductFromCart, addProductToCart, sumTotalPrice } from '../../components/functions/manipulatingArray'
 import HandlingResponseAPI from '../handlingResponseAPI'
 import closeAndOpen from '../../components/functions/closeAndOpen'
 
@@ -101,7 +101,7 @@ export default function Cart({arrList, setArrList}) {
               onClickPlus={() => setArrList(addProductToCart(arrList, product))}
               qtd={product.qtd}
               onClickLess={() => setArrList(removeProductFromCart(arrList, product))}
-              onclickTrash={() => setArrList(deleteItemArray(arrList, product))}/>   
+              onclickTrash={() => setArrList(deleteItemFromCart(arrList, product.id))}/>   
             )}) 
             :
             <p className={styles.paragraph}>Ainda não tem nada no carrinho!</p> 

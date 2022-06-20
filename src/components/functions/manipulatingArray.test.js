@@ -2,7 +2,7 @@ import {
   removeProductFromCart,
   sumTotalPrice,
   addProductToCart,
-  deleteItemArray
+  deleteItemFromCart
 } from './manipulatingArray.js'
 import '@testing-library/jest-dom';
 
@@ -47,7 +47,7 @@ const product =
   sub_type: "hamburguer",
   type: "all-day",
   updatedAt: "2021-02-16T13:11:54.173Z",
-  qtd: 2
+  qtd: 1
 }
 
 describe('removeProductFromCart()', () => {
@@ -56,7 +56,7 @@ describe('removeProductFromCart()', () => {
   })
 
   it('Devera excluir o item do array', () => {
-    expect(deleteItemArray(cart, product)).toEqual([
+    expect(removeProductFromCart(cart, product)).toEqual([
       {
         "complement": "ovo",
         "createdAt": "2021-02-16T13:11:54.173Z",
@@ -102,9 +102,9 @@ describe('sumTotalPrice()', () => {
   })
 })
 
-describe('deleteItemArray()', () => {
+describe('deleteItemFromCart()', () => {
   it('Devera excluir o item do array', () => {
-    expect(deleteItemArray(cart, product)).toEqual([
+    expect(deleteItemFromCart(cart, product.id)).toEqual([
       {
         "complement": "ovo",
         "createdAt": "2021-02-16T13:11:54.173Z",

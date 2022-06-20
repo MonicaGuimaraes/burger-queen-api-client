@@ -1,6 +1,7 @@
 <div align="center">
 <a  href='https://kukki.vercel.app'><img src='https://cdn.discordapp.com/attachments/948752264212922418/988104089223172106/Group_12.png' align="center" alt="Kukki"  width="300px;"></a> 
 </div>
+
 ## Índice
 
 * [1. Prefácio.](#1-prefácio)
@@ -10,7 +11,7 @@
 * [5. Definição do produto e design.](#5-definição-do-produto-e-design)
 * [6. Lighthouse.](#6-Lighthouse)
 * [7. Desenvolvedoras.](#7-desenvolvedoras)
-* [8. Como rodar? &#9881;](#8-como-rodar-&#9881;)
+* [8. Como rodar? &#9881;](#8-como-rodar?-&#9881;)
 * [9. Objetivos de aprendizagem](#9-objetivos-de-aprendizagem)
 
 ***
@@ -128,7 +129,7 @@ Todos os componentes criados possuem testes próprios e também suas respectivas
 
 Os testes de usabilidade estão disponíveis para leitura, [clicando aqui](https://docs.google.com/document/d/1Vyx8WtS3_RfljnOvgE8bHnBTNSVN1WOOsc2PZZyClIM/edit?usp=sharing).
 
-Após cada teste de usabilidade foram geradas tarefas que se tornarão em futuras issues para o projeto.
+Após cada teste de usabilidade foram geradas tarefas que se tornarão em futuras issues para o projeto. 
 
 ---
 ## 6. Lighthouse
@@ -136,7 +137,7 @@ Após cada teste de usabilidade foram geradas tarefas que se tornarão em futura
 Pontuações de Performance, Progressive Web App, Accessibility e Best Practices do [Lighthouse](https://developers.google.com/web/tools/lighthouse/)
 
 <div  align="center" >
-<a><img src="https://i.picasion.com/pic92/caa98ef3ac61020432c15b2d46d02891.gif" width="400" height="178" border="0" alt="https://picasion.com/" /></a><br /><a href="https://picasion.com/"></a>
+<a><img src="https://i.picasion.com/pic92/caa98ef3ac61020432c15b2d46d02891.gif" width="600" height="280" border="0" alt="https://picasion.com/" /></a><br /><a href="https://picasion.com/"></a>
 </div>
 
 ---

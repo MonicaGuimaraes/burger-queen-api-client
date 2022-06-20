@@ -17,5 +17,4 @@ export function registerAPI(object){
     
   return fetch('https://lab-api-bq.herokuapp.com/users', options)
     .then((response) => response.json()) 
-    .then((response) =>  response)
 };

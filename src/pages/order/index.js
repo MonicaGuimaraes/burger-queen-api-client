@@ -4,7 +4,7 @@ import logo from '../../assets/Logo.svg'
 import ButtonHome from '../../components/buttonHome'
 import { callOrdersAPI } from '../../API/CallOrdersAPI'
 import { useEffect, useState } from 'react'
-import {organizingArray} from '../../components/functions/manipulatingArray'
+import {sortOrderItems} from '../../components/functions/manipulatingArray'
 import { getPersistedUser } from '../../components/localStorage'
 
 export default function Order() {
@@ -44,7 +44,7 @@ export default function Order() {
       <img className={styles.LogoImg} src={logo} alt='logo' />
       <div className={styles.divContainersOrder}>
         <ContainerOrder 
-          ordersWithStatus={organizingArray(listPendingCommand)}
+          ordersWithStatus={sortOrderItems(listPendingCommand)}
           disabled={role !== 'cozinha'}
           orders={orders} 
           status={'inPreparation'} 
@@ -54,7 +54,7 @@ export default function Order() {
           Pedidos pendentes
         </ContainerOrder>
         <ContainerOrder 
-          ordersWithStatus={organizingArray(listInPeparationCommand)} 
+          ordersWithStatus={sortOrderItems(listInPeparationCommand)} 
           disabled={role !== 'cozinha'}
           orders={orders} 
           status={'ready'}
@@ -65,7 +65,7 @@ export default function Order() {
         </ContainerOrder>
         { role === 'atendimento' ?
           <ContainerOrder 
-            ordersWithStatus={organizingArray(listReadyOrderCommand)}
+            ordersWithStatus={sortOrderItems(listReadyOrderCommand)}
             disabled={role === 'cozinha'}
             orders={orders}
             status={'delivered'} 

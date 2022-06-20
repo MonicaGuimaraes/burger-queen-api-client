@@ -11,6 +11,5 @@ export function callOrdersAPI(){
   }
     
   return fetch('https://lab-api-bq.herokuapp.com/orders', options)
-    .then((response) => response.json()) 
-    .then((response) =>  response)
+    .then((response) => response.json())
 };

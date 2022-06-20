@@ -31,12 +31,12 @@ export function removeProductFromCart(cart, product){
   return newCart
 }
 
-export function deleteItemArray(arrList, product){
-  const currentList = [...arrList]
-  return currentList.filter((element) => element.id !== product.id)
+export function deleteItemFromCart(cart, id){
+  let newCart = [...cart]
+  return newCart.filter((element) => element.id !== id)
 }
 
-export function organizingArray(arr){
+export function sortOrderItems(arr){
   return arr.sort((a,b)=>{
     if (a.createdAt > b.createdAt) {
       return -1;

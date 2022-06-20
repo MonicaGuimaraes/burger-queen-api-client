@@ -11,5 +11,4 @@ export function menuAPI(){
       
     return fetch('https://lab-api-bq.herokuapp.com/products', options)
       .then((response) => response.json()) 
-      .then((response) =>  response)
 };

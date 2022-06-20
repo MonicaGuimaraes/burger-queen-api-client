@@ -1,9 +1,8 @@
 import { Navigate } from "react-router-dom";
 
 
-
 export function setUserLocalStorage(objUser){
-  if(typeof objUser === 'object'){
+  if(typeof objUser === 'object' || Array.isArray(objUser)){
     localStorage.setItem('user', JSON.stringify(objUser))
   }
 }

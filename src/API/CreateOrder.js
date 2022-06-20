@@ -17,5 +17,4 @@ export function createOrderAPI(obj){
       
   return fetch('https://lab-api-bq.herokuapp.com/orders', options)
     .then((response) => response.json()) 
-    .then((response) =>  response)
 };
