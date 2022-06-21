@@ -1,4 +1,4 @@
-import { getPersistedUser } from '../components/localStorage/index.jsx'
+import { getPersistedUser } from '../components/localStorage'
 
 export function deleteOrderAPI(idOrder){
 

@@ -1,4 +1,4 @@
-import { getPersistedUser } from '../components/localStorage/index.jsx'
+import { getPersistedUser } from '../components/localStorage'
 
 export function callOrdersAPI(){
   const header = new Headers()
@@ -9,7 +9,7 @@ export function callOrdersAPI(){
     method: 'GET',
     headers: header,
   }
-    
+  
   return fetch('https://lab-api-bq.herokuapp.com/orders', options)
     .then((response) => response.json())
 };

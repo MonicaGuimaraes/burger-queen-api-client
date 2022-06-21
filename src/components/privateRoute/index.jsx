@@ -1,17 +1,5 @@
 import { Navigate } from "react-router-dom";
-
-
-export function setUserLocalStorage(objUser){
-  if(typeof objUser === 'object' || Array.isArray(objUser)){
-    localStorage.setItem('user', JSON.stringify(objUser))
-  }
-}
-
-export function getPersistedUser() {
-  let user = localStorage.getItem('user');
-  user = JSON.parse(user)
-  return user
-}
+import { getPersistedUser } from "../localStorage";
 
 export function PrivateRoute({children}) {
   const user = getPersistedUser()
@@ -25,8 +13,4 @@ export function PrivateRouteWithRole({children}) {
   } else {
     return ( <Navigate to='/' /> )
   }
-}
-
-export function logoutUser() {
-  localStorage.removeItem('user')
 }

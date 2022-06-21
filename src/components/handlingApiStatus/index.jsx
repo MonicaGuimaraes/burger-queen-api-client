@@ -1,5 +1,5 @@
-import styles from './HandlingResponseAPI.module.css';
-export default function HandlingResponseAPI({message}) {
+import styles from './HandlingApiStatus.module.css';
+export default function HandlingApiStatus({message}) {
   const text = {
     'email/senha inválido': 'E-mail ou senha inválido',
     'email/senha não fornecido': 'Digite o e-mail ou a senha',

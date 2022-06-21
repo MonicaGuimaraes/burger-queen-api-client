@@ -3,7 +3,7 @@ import Command from '../command'
 import { changeStatusAPI } from '../../API/ChangeStatusAPI'
 import { callOrdersAPI } from '../../API/CallOrdersAPI'
 import { useState } from 'react'
-import HandlingResponseAPI from '../handlingResponseAPI'
+import HandlingApiStatus from '../handlingApiStatus'
 
 export default function ContainerOrder({children, nameButton, classNameButton, ordersWithStatus, status,  setOrders, disabled}) {
   
@@ -43,7 +43,7 @@ export default function ContainerOrder({children, nameButton, classNameButton, o
       <section className={styles.sectionOrder}>
         <h1>{children}</h1>
         <div className={styles.sectionClosed}>     
-          { showElement ? <HandlingResponseAPI message={responseAPI} /> : null } 
+          { showElement ? <HandlingApiStatus message={responseAPI} /> : null } 
           <ul className={styles.ulOrder}>  
             {ordersWithStatus.length !== 0 ? ordersWithStatus.map((order) => (
               <Command disabled={disabled} order={order} key={order.id} onClickStatus={() => modifyStatusOrder(order, status)} classNameButton={classNameButton}>{nameButton}</Command>)

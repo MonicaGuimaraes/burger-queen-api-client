@@ -2,7 +2,7 @@ import Inputs from '../../components/inputs'
 import ButtonSubmit from '../../components/buttons'
 import { loginAPI } from '../../API/LoginAPI'
 import { useState } from "react"
-import HandlingResponseAPI from '../../components/handlingResponseAPI'
+import HandlingApiStatus from '../../components/handlingApiStatus'
 import styles from './login.module.css'
 import logo from '../../assets/Logo.svg'
 import { setUserLocalStorage } from '../../components/localStorage'
@@ -62,7 +62,7 @@ export default function Login(){
       { navigate ? <Navigate to="/home" /> : null }
       <img className={styles.LogoImgLogin} src={logo} alt="logo"/>
       <form onSubmit={onSubmitForm} className={styles.FormLogin}>
-      { showElement ? <HandlingResponseAPI message={responseAPI} /> : null }   
+      { showElement ? <HandlingApiStatus message={responseAPI} /> : null }   
         <h1>Login</h1>
         <Inputs 
           type='email' 

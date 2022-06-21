@@ -2,7 +2,7 @@ import Inputs from '../../components/inputs'
 import ButtonSubmit from '../../components/buttons'
 import { useState } from 'react'
 import { registerAPI } from '../../API/RegisterAPI'
-import HandlingResponseAPI from '../../components/handlingResponseAPI'
+import HandlingApiStatus from '../../components/handlingApiStatus'
 import styles from './register.module.css';
 import logo from '../../assets/Logo.svg'
 import {
@@ -72,7 +72,7 @@ export default function Register(){
     <section className={styles.SectionLogin}>
       <img className={styles.LogoImg} src={logo} alt='logo'/>
       <form onSubmit={onSubmitForm} className={styles.FormLogin}>
-        { showElement ? <HandlingResponseAPI message={responseAPI}/> : null }   
+        { showElement ? <HandlingApiStatus message={responseAPI}/> : null }   
         <h1>Registro</h1>
         <Inputs type='text' placeholder='Nome' autoComplete='off' required value={name} onChange={(e) => setName(e.target.value)} />
         <Inputs type='email' placeholder='Email' autoComplete='off' required value={email} onChange={(e) => setEmail(e.target.value)} />

@@ -3,7 +3,7 @@ import Login from './pages/login';
 import Menu from './pages/menu';
 import Order from './pages/order';
 import Register from './pages/register';
-import { PrivateRoute, PrivateRouteWithRole } from './components/localStorage';
+import { PrivateRoute, PrivateRouteWithRole } from './components/privateRoute';
 import OrderFinalized from './pages/orderFinalized';
 import {
   BrowserRouter as Router,

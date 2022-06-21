@@ -5,7 +5,7 @@ import styles from './Cart.module.css'
 import ProductsCart from '../productsCart'
 import { createOrderAPI } from '../../API/CreateOrder'
 import { deleteItemFromCart, removeProductFromCart, addProductToCart, sumTotalPrice } from '../../components/functions/manipulatingArray'
-import HandlingResponseAPI from '../handlingResponseAPI'
+import HandlingApiStatus from '../handlingApiStatus'
 import closeAndOpen from '../../components/functions/closeAndOpen'
 
 export default function Cart({arrList, setArrList}) {
@@ -78,7 +78,7 @@ export default function Cart({arrList, setArrList}) {
   <> 
     <section ref={classOpenCart} 
     className={styles.sectionClosed}> 
-    {showElement ? <HandlingResponseAPI message={responseAPI}/> : null}
+    {showElement ? <HandlingApiStatus message={responseAPI}/> : null}
       <div className={styles.DivbuttonOpenAndClosed}>
         <button 
         className={styles.buttonOpenAndClosed} 

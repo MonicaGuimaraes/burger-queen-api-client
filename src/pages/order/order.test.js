@@ -2,6 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import Order from './index.js';
 import {
+  waitForElementToBeRemoved,
   render,
   screen,
   waitFor
@@ -9,12 +10,12 @@ import {
 import user from '@testing-library/user-event';
 import { callOrdersAPI } from '../../API/CallOrdersAPI.js'
 import { changeStatusAPI } from '../../API/ChangeStatusAPI.js'
-import { getPersistedUser } from '../../components/localStorage/index'
+import { getPersistedUser } from '../../components/localStorage'
 
 jest.mock('../../API/CallOrdersAPI.js')
 jest.mock('../../API/ChangeStatusAPI.js')
 jest.mock('react-router-dom')
-jest.mock('../../components/localStorage/index')
+jest.mock('../../components/localStorage')
 
 const arrOrders = [{
   Products: [{
@@ -58,7 +59,7 @@ const arrOrders = [{
     name: "Café americano",
     qtd: 1
   }],
-  client_name: "aaaa",
+  client_name: "vip",
   createdAt: "2022-06-03T19:23:54.680Z",
   id: 5545,
   processedAt: "2022-06-11T01:26:59.454Z",
@@ -71,7 +72,7 @@ const arrOrders = [{
 
 describe('Order', () => {
   test('Interação com a pagina Order sendo da cozinha', async () => {
-    getPersistedUser.mockResolvedValue({
+    getPersistedUser.mockReturnValue({
       role: 'cozinha'
     })
     callOrdersAPI.mockResolvedValue(arrOrders)
@@ -87,23 +88,13 @@ describe('Order', () => {
       expect(arrButton).toHaveLength(3)
     })
 
-  //   const button = screen.getByText('Pendente')
-  //   user.click(button)
-
-  //   await waitFor(() => {
-  //     expect(changeStatusAPI).toHaveBeenCalledWith('inPreparation', arrOrders[2].id.toString())
-  //   })
-
-  //   await waitFor(() => {
-  //     expect(callOrdersAPI).toHaveBeenCalledTimes(2)
-  //   })
   })
   
   test('Interação com a pagina Order sendo do atendimento', async () => {
-    getPersistedUser.mockResolvedValue({
+    getPersistedUser.mockReturnValue({
       role: 'atendimento'
     })
-    callOrdersAPI.mockResolvedValue(arrOrders)
+    callOrdersAPI.mockResolvedValueOnce(arrOrders)
     changeStatusAPI.mockResolvedValueOnce({})
     render(<Order />)
 
@@ -113,20 +104,20 @@ describe('Order', () => {
 
     await waitFor(() => {
       const arrButton = screen.getAllByRole('button')
-      expect(arrButton).toHaveLength(3)
+      expect(arrButton).toHaveLength(4)
     })
 
-  //   const button = screen.getByText('Pendente')
-  //   user.click(button)
+    const [, ...newOrders] = arrOrders
+    callOrdersAPI.mockResolvedValueOnce(newOrders)
+    const button = screen.getByText('Pronto')
+    user.click(button)
+    
+    await waitForElementToBeRemoved(() => screen.queryByText('Pronto'))
+    expect(changeStatusAPI).toHaveBeenCalledTimes(1)
+    expect(callOrdersAPI).toHaveBeenCalledTimes(2)
+    const client = screen.getByText('Cliente: vip')
+    expect(client).toBeInTheDocument()
 
-  //   await waitFor(() => {
-  //     expect(changeStatusAPI).toHaveBeenCalledTimes(0)
-  //   })
-
-  //   await waitFor(() => {
-  //     expect(callOrdersAPI).toHaveBeenCalledTimes(2)
-  //   })
   })
-
 
 })

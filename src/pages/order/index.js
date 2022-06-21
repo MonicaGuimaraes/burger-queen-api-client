@@ -13,12 +13,9 @@ export default function Order() {
   const [listInPeparationCommand, setListInPreparationCommand ] = useState([])
   const [listReadyOrderCommand, setListReadyOrderCommand ] = useState([])
   const [orders, setOrders] = useState([])
-  const [role, setRole] = useState('')
   
-  useEffect(()=>{
-    const user = getPersistedUser()
-    setRole(user.role)
-  },[])
+  const user = getPersistedUser()
+  const role = user.role
 
   useEffect(()=>{
     callOrdersAPI().then((response) => setOrders(response))
@@ -43,6 +40,19 @@ export default function Order() {
       <ButtonHome />
       <img className={styles.LogoImg} src={logo} alt='logo' />
       <div className={styles.divContainersOrder}>
+      { role === 'atendimento' ?
+          <ContainerOrder 
+            ordersWithStatus={sortOrderItems(listReadyOrderCommand)}
+            disabled={role === 'cozinha'}
+            orders={orders}
+            status="delivered"
+            nameButton="Pronto"
+            classNameButton={styles.buttonReady} 
+            setOrders={setOrders}>
+            Pedidos para entrega
+          </ContainerOrder> :
+           null
+        }
         <ContainerOrder 
           ordersWithStatus={sortOrderItems(listPendingCommand)}
           disabled={role !== 'cozinha'}
@@ -63,19 +73,7 @@ export default function Order() {
           setOrders={setOrders}>
           Pedidos em preparo
         </ContainerOrder>
-        { role === 'atendimento' ?
-          <ContainerOrder 
-            ordersWithStatus={sortOrderItems(listReadyOrderCommand)}
-            disabled={role === 'cozinha'}
-            orders={orders}
-            status={'delivered'} 
-            nameButton={'Pronto'} 
-            classNameButton={styles.buttonReady} 
-            setOrders={setOrders}>
-            Pedidos para entrega
-          </ContainerOrder> :
-           null
-        }
+       
         
       </div>
     </main>
