@@ -1,7 +1,11 @@
 <div align="center">
 <a  href='https://kukki.vercel.app'><img src='https://cdn.discordapp.com/attachments/948752264212922418/988104089223172106/Group_12.png' align="center" alt="Kukki"  width="300px;"></a> 
 </div>
-
+<p align="center">Logins:</p>
+<p align="center">e-mail: useratendente@mail.com</p>
+<p align="center">senha: useratendente</p>
+<p align="center">e-mail: usercozinha@mail.com</p>
+<p align="center">senha: usercozinha</p>
 ## Índice
 
 * [1. Prefácio.](#1-prefácio)
