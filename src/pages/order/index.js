@@ -4,7 +4,7 @@ import logo from '../../assets/Logo.svg'
 import ButtonHome from '../../components/buttonHome'
 import { callOrdersAPI } from '../../API/CallOrdersAPI'
 import { useEffect, useState } from 'react'
-import {sortOrderItems} from '../../components/functions/manipulatingArray'
+import {sortOrderItems} from '../../components/functions/changesOnCart'
 import { getPersistedUser } from '../../components/localStorage'
 
 export default function Order() {
@@ -26,8 +26,6 @@ export default function Order() {
       })
     }, 50000 );
   }, [])
-
-  
 
   useEffect(()=>{
     setListPendingCommand(orders.filter((product) => product.status === 'pending'))

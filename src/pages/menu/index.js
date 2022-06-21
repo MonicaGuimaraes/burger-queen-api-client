@@ -6,7 +6,7 @@ import ProductItem from '../../components/products'
 import logo from '../../assets/Logo.svg'
 import styles from './Menu.module.css'
 import ButtonHome from '../../components/buttonHome'
-import { addProductToCart } from '../../components/functions/manipulatingArray'
+import { addProductToCart } from '../../components/functions/changesOnCart'
 
 
 export default function Menu(){

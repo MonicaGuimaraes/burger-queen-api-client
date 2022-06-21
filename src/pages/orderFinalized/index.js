@@ -4,7 +4,7 @@ import ContainerOrder from '../../components/containerOrder'
 import logo from '../../assets/Logo.svg'
 import ButtonHome from '../../components/buttonHome'
 import { useEffect, useState } from 'react'
-import { sortOrderItems } from '../../components/functions/manipulatingArray.js'
+import { sortOrderItems } from '../../components/functions/changesOnCart.js'
 
 export default function OrderFinalized () {
   const [orders, setOrders] = useState([])

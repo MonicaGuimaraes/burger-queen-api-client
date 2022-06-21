@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import styles from './Cart.module.css'
 import ProductsCart from '../productsCart'
 import { createOrderAPI } from '../../API/CreateOrder'
-import { deleteItemFromCart, removeProductFromCart, addProductToCart, sumTotalPrice } from '../../components/functions/manipulatingArray'
+import { deleteItemFromCart, removeProductFromCart, addProductToCart, sumTotalPrice } from '../functions/changesOnCart'
 import HandlingApiStatus from '../handlingApiStatus'
 import closeAndOpen from '../../components/functions/closeAndOpen'
 

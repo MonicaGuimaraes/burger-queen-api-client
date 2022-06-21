@@ -3,7 +3,7 @@ import {
   sumTotalPrice,
   addProductToCart,
   deleteItemFromCart
-} from './manipulatingArray.js'
+} from './changesOnCart.js'
 import '@testing-library/jest-dom';
 
 const cart = [
