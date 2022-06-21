@@ -1,5 +1,5 @@
 export function setUserLocalStorage(objUser){
-  if(typeof objUser === 'object' || Array.isArray(objUser)){
+  if(typeof objUser === 'object' && Array.isArray(objUser) === false){
     localStorage.setItem('user', JSON.stringify(objUser))
   }
 }
