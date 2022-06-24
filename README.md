@@ -1,11 +1,12 @@
 <div align="center">
 <a  href='https://kukki.vercel.app'><img src='https://cdn.discordapp.com/attachments/948752264212922418/988104089223172106/Group_12.png' align="center" alt="Kukki"  width="300px;"></a> 
 </div>
-<p align="center">Logins:</p>
+<p align="center">Logins para ter acesso a aplicação:</p>
 <p align="center">e-mail: useratendente@mail.com</p>
 <p align="center">senha: useratendente</p>
 <p align="center">e-mail: usercozinha@mail.com</p>
 <p align="center">senha: usercozinha</p>
+
 ## Índice
 
 * [1. Prefácio.](#1-prefácio)
@@ -71,7 +72,7 @@ Essas são as funcionalidades principais que o produto tem:
 Além disso o projeto foi criado do zero, desde as instalações e preparação do boilerplate, testes, lógica, design, estilização.
 
 ---
-## 4. Critérios mínimos de aceitação do projeto
+## 4. Critérios mínimos de aceitação do projeto 
 
 Todos as histórias de usuárias tem como definição de pronto o acordado abaixo:
 
@@ -134,6 +135,11 @@ Todos os componentes criados possuem testes próprios e também suas respectivas
 Os testes de usabilidade estão disponíveis para leitura, [clicando aqui](https://docs.google.com/document/d/1Vyx8WtS3_RfljnOvgE8bHnBTNSVN1WOOsc2PZZyClIM/edit?usp=sharing).
 
 Após cada teste de usabilidade foram geradas tarefas que se tornarão em futuras issues para o projeto. 
+
+### Fluxograma 
+<div align="center">
+<img src='https://cdn.discordapp.com/attachments/951913651059716138/988781356496601138/My_First_Board_-_Frame_1_1.jpg' align="center" alt="prototipos"  width="400px">
+</div>
 
 ---
 ## 6. Lighthouse

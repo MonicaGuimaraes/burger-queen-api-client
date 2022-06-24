@@ -81,7 +81,7 @@ describe('Order', () => {
 
     await waitFor(() => {
       expect(callOrdersAPI).toHaveBeenCalled()
-    })
+    }) //Precisamos realmente disso?
 
     await waitFor(() => {
       const arrButton = screen.getAllByRole('button')
