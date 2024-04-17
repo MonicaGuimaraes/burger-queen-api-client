@@ -1,5 +1,5 @@
 <div align="center">
-<a  href='https://kukki.vercel.app'><img src='https://cdn.discordapp.com/attachments/948752264212922418/988104089223172106/Group_12.png' align="center" alt="Kukki"  width="300px;"></a> 
+<a  href='https://kukki.vercel.app'><img src="https://cdn.discordapp.com/attachments/975577499729805343/988085477452173342/Group_12.png?ex=662e5acf&is=661be5cf&hm=e2fca47cbe5276f374bc14cb1ac00272070a58ade72a4bd1dcd378152ef7e251&" align="center" alt="Kukki"  width="300px;"></a> 
 </div>
 <p align="center">Logins para ter acesso a aplicação:</p>
 <p align="center">e-mail: useratendente@mail.com</p>
@@ -82,19 +82,19 @@ Todos as histórias de usuárias tem como definição de pronto o acordado abaix
 - Você deu deploy de seu aplicativo e marcou sua versão (tag git).
 
 <div align="center">
-  <img src='https://cdn.discordapp.com/attachments/948752264212922418/988104867920875570/Group_14.png' align="center" alt="usuario1"  width="500px"> 
+  <img src="https://media.discordapp.net/attachments/975577499729805343/1230284417000542250/Group_14.png?ex=6632c2a6&is=66204da6&hm=650e163cb8a3e45344a82cdcfd81aceb93273aa08fefe74a0d4771fd291acbd7&=&format=webp&quality=lossless" align="center" alt="usuario1"  width="500px"> 
 </div>
 <br>
 <div align="center">
-  <img src='https://cdn.discordapp.com/attachments/948752264212922418/988104868147380345/Group_15.png' align="center" alt="usuario2"  width="500px"> 
+  <img src="https://media.discordapp.net/attachments/975577499729805343/1230284417248002119/Group_15.png?ex=6632c2a6&is=66204da6&hm=7aec254c8789d08e49932a7f311c78540954b9b4fbed61ec88a5acf74000ade6&=&format=webp&quality=lossless" align="center" alt="usuario2"  width="500px"> 
 </div>
 <br>
 <div align="center">
-  <img src='https://cdn.discordapp.com/attachments/948752264212922418/988104867660824677/Group_13.png' align="center" alt="usuario3"  width="500px"> 
+  <img src="https://media.discordapp.net/attachments/975577499729805343/1230284416669061121/Group_13.png?ex=6632c2a6&is=66204da6&hm=5f1a4ec3c910c272a7df72285baf4effba328c5fa70aca3cd4ee03f81d42f22b&=&format=webp&quality=lossless" align="center" alt="usuario3"  width="500px"> 
 </div>
 <br>
 <div align="center">
-  <img src='https://cdn.discordapp.com/attachments/948752264212922418/988104868348702761/Group_16.png' align="center" alt="usuario4"  width="500px"> 
+  <img src="https://media.discordapp.net/attachments/975577499729805343/1230284417499533313/Group_16.png?ex=6632c2a6&is=66204da6&hm=7b4065d7985597db42f71d2cd7207f116b32ec84eba02d460d899a78bcc80da9&=&format=webp&quality=lossless" align="center" alt="usuario4"  width="500px"> 
 </div>
 
 ---
@@ -103,15 +103,15 @@ Todos as histórias de usuárias tem como definição de pronto o acordado abaix
 ### Proto Personas
 
 <div align="center">
-  <img src='https://cdn.discordapp.com/attachments/948752264212922418/988105335292198912/Proto_Persona_1.png' align="center" alt="protopersona1"  width="500px"> 
+  <img src="https://media.discordapp.net/attachments/975577499729805343/1230284417780682872/Proto_Persona_1.png?ex=6632c2a6&is=66204da6&hm=5f02e8bb22851a213eea1fdf96bdd33c33d7441c5d5eabd97e9c512036895da9&=&format=webp&quality=lossless" align="center" alt="protopersona1"  width="500px"> 
 </div>
 <br>
 <div align="center">
-  <img src='https://cdn.discordapp.com/attachments/948752264212922418/988105335497715732/Proto_Persona_2.png' align="center" alt="protopersona2"  width="500px"> 
+  <img src="https://media.discordapp.net/attachments/975577499729805343/1230284418044919841/Proto_Persona_2.png?ex=6632c2a6&is=66204da6&hm=0fa61bfbbf80e2c9c76d22eee0ed9e0764ed58fedf1873c41112d081cdf8624e&=&format=webp&quality=lossless" align="center" alt="protopersona2"  width="500px"> 
 </div>
 <br>
 <div align="center">
-  <img src='https://cdn.discordapp.com/attachments/948752264212922418/988105335724183563/Proto_Persona_3.png' align="center" alt="protopersona3"  width="500px"> 
+  <img src="https://media.discordapp.net/attachments/975577499729805343/1230284418296451202/Proto_Persona_3.png?ex=6632c2a6&is=66204da6&hm=33a97c56ab6f787b8aea62d72e587cca86d7dec4fcc8a418882c4ab9ce6d1063&=&format=webp&quality=lossless" align="center" alt="protopersona3"  width="500px"> 
 </div>
 
 
@@ -120,14 +120,14 @@ Todos as histórias de usuárias tem como definição de pronto o acordado abaix
 O Protótipo foi criado pelo [FIGMA](https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F4at2Me9ArF59c95ezHIaqH%2FBurguerQueen%3Fnode-id%3D41%253A162)
 
 <div align="center">
-  <img src='https://cdn.discordapp.com/attachments/975577499729805343/988171659372556308/Picsart_22-06-19_17-00-38-992.gif' align="center" alt="prototipos"  width="400px"> 
+  <img src="https://cdn.discordapp.com/attachments/975577499729805343/988171659372556308/Picsart_22-06-19_17-00-38-992.gif?ex=662eab12&is=661c3612&hm=501030eacced92ace1c18d3c30a90934ff8bd9faab6d249839caad2422d1f696&" align="center" alt="prototipos"  width="400px"> 
 </div>
 
 ### Testes 
 Todos os componentes criados possuem testes próprios e também suas respectivas funções. Os testes cobrem a maioria das funcionalidades do projeto:
 
 <div align="center">
-  <img src='https://cdn.discordapp.com/attachments/975577499729805343/988173595060621373/unknown.png' align="center" alt="prototipos"  width="400px"> 
+  <img src="https://media.discordapp.net/attachments/975577499729805343/988173595060621373/unknown.png?ex=662eace0&is=661c37e0&hm=a9ce3afaa0ee10ab2464ae8fb25b8453fcac278f2b7f89bcdf7543a15ff46b74&=&format=webp&quality=lossless" align="center" alt="prototipos"  width="400px"> 
 </div>
 
 ### Testes de Usabilidade
@@ -138,7 +138,7 @@ Após cada teste de usabilidade foram geradas tarefas que se tornarão em futura
 
 ### Fluxograma 
 <div align="center">
-<img src='https://cdn.discordapp.com/attachments/951913651059716138/988781356496601138/My_First_Board_-_Frame_1_1.jpg' align="center" alt="prototipos"  width="400px">
+<img src="https://cdn.discordapp.com/attachments/975577499729805343/1230286122970775674/Fluxo_das_paginas_e_estados_de_pedidos.png?ex=6632c43d&is=66204f3d&hm=ca16014db9d0d9e8fd96b664f040218cc40a8d5af4903f369f04c728ba02b8b6&" align="center" alt="prototipos"  width="400px">
 </div>
 
 ---
